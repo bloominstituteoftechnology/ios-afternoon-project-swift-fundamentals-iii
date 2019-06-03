@@ -132,14 +132,3 @@ Hint: Toggle state on a UIButton with the `myButton.isSelected.toggle()` method.
 
 2. Use the `string(from:)` method to convert from a number to a String for display
 
-
-
-
-
-
-3. Design the user interface
-	1. Add labels and text fields to capture and display the currency from and to values
-	2. Use a Convert button to trigger the conversion
-	3. Add two buttons to toggle what currency to convert to and from
-4. Create constants to store the current conversion rates
-5. 
