@@ -22,29 +22,46 @@ class ViewController: UIViewController {
     
     var currencyType: CurrencyType = CurrencyType.cad
     
+    //MARK: ConvertButtonTapped
+    
     @IBAction func convertButtonTapped(_ sender: Any) {
+        
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        
         guard let userInput = fromCurrencyTextField.text,
         let userInputDouble = Double(userInput)
         else{ return }
         
         if toCurrencyLabel.text == "Currency (CAD)" {
-            toCurrencyTextField.text = "$\(convert(dollars: userInputDouble, to: .cad))"
+            let number: NSNumber = NSNumber(value: convert(dollars: userInputDouble, to: .cad))
+            let formattedNumber = currencyFormatter.string(from: number)
+            if let unWrappedNumber = formattedNumber {
+                toCurrencyTextField.text = unWrappedNumber
+            }
         }else if toCurrencyLabel.text == "Currency (Peso)" {
-            toCurrencyTextField.text = "$\(convert(dollars: userInputDouble, to: .peso))"
+            let number: NSNumber = NSNumber(value: convert(dollars: userInputDouble, to: .peso))
+            let formattedNumber = currencyFormatter.string(from: number)
+            if let unWrappedNumber = formattedNumber {
+                toCurrencyTextField.text = unWrappedNumber
+            }
         }
-        
     }
+    
+    //MARK: cadButtonTapped
+    
     @IBAction func cadButtonPressed(_ sender: Any) {
         currencyType = CurrencyType.cad
         toCurrencyLabel.text = "Currency (CAD)"
-        toCurrencyTextField.text = ""
+        toCurrencyTextField.text = "$"
     }
+    
+    //MARK: pesoButtonTapped
+    
     @IBAction func pesoButtonPressed(_ sender: Any) {
         currencyType = CurrencyType.peso
         toCurrencyLabel.text = "Currency (Peso)"
-        toCurrencyTextField.text = ""
+        toCurrencyTextField.text = "$"
     }
-    
-
 }
 
