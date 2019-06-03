@@ -17,13 +17,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var pesoButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
+    
+    var currencyType: CurrencyType = CurrencyType.cad
+    
     @IBAction func convertButtonTapped(_ sender: Any) {
+        guard let userInput = fromCurrencyTextField.text,
+        let userInputDouble = Double(userInput)
+        else{ return }
+        
+        
+        
     }
     @IBAction func cadButtonPressed(_ sender: Any) {
+        currencyType = CurrencyType.cad
+        toCurrencyLabel.text = "Currency (CAD)"
     }
     @IBAction func pesoButtonPressed(_ sender: Any) {
+        currencyType = CurrencyType.peso
+        toCurrencyLabel.text = "Currency (Peso)"
     }
     
 
