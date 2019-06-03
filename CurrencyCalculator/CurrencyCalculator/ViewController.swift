@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var fromCurrencyTextField: UITextField!
     @IBOutlet weak var toCurrencyTextField: UITextField!
     @IBOutlet weak var toCurrencyLabel: UILabel!
+    @IBOutlet weak var convertButton: UIButton!
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var pesoButton: UIButton!
     
@@ -51,6 +52,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         cadButton.isSelected.toggle()
         pesoButton.isSelected = false
+        view.backgroundColor = .darkText
+        convertButton.layer.cornerRadius = 20.5
     }
     
     @IBAction func convertButtonPressed(_ sender: Any) {
