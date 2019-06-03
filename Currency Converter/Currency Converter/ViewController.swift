@@ -27,16 +27,22 @@ class ViewController: UIViewController {
         let userInputDouble = Double(userInput)
         else{ return }
         
-        
+        if toCurrencyLabel.text == "Currency (CAD)" {
+            toCurrencyTextField.text = "$\(convert(dollars: userInputDouble, to: .cad))"
+        }else if toCurrencyLabel.text == "Currency (Peso)" {
+            toCurrencyTextField.text = "$\(convert(dollars: userInputDouble, to: .peso))"
+        }
         
     }
     @IBAction func cadButtonPressed(_ sender: Any) {
         currencyType = CurrencyType.cad
         toCurrencyLabel.text = "Currency (CAD)"
+        toCurrencyTextField.text = ""
     }
     @IBAction func pesoButtonPressed(_ sender: Any) {
         currencyType = CurrencyType.peso
         toCurrencyLabel.text = "Currency (Peso)"
+        toCurrencyTextField.text = ""
     }
     
 
