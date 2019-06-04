@@ -34,17 +34,22 @@ class ViewController: UIViewController {
         else{ return }
         
         if toCurrencyLabel.text == "Currency (CAD)" {
+            
             let number: NSNumber = NSNumber(value: convert(dollars: userInputDouble, to: .cad))
             let formattedNumber = currencyFormatter.string(from: number)
             if let unWrappedNumber = formattedNumber {
                 toCurrencyTextField.text = unWrappedNumber
             }
+          
+            
         }else if toCurrencyLabel.text == "Currency (Peso)" {
             let number: NSNumber = NSNumber(value: convert(dollars: userInputDouble, to: .peso))
             let formattedNumber = currencyFormatter.string(from: number)
             if let unWrappedNumber = formattedNumber {
                 toCurrencyTextField.text = unWrappedNumber
             }
+            
+
         }
     }
     
@@ -54,6 +59,8 @@ class ViewController: UIViewController {
         currencyType = CurrencyType.cad
         toCurrencyLabel.text = "Currency (CAD)"
         toCurrencyTextField.text = "$"
+            cadButton.isSelected = true
+            pesoButton.isSelected = false
     }
     
     //MARK: pesoButtonTapped
@@ -62,6 +69,8 @@ class ViewController: UIViewController {
         currencyType = CurrencyType.peso
         toCurrencyLabel.text = "Currency (Peso)"
         toCurrencyTextField.text = "$"
+        cadButton.isSelected = false
+        pesoButton.isSelected = true
     }
 }
 

@@ -23,6 +23,5 @@ func convert(dollars: Double, to unit: CurrencyType) -> Double {
     } else if unit == CurrencyType.peso {
         conversionResult = dollars * PesoConversion
     }
-   
     return conversionResult
 }
