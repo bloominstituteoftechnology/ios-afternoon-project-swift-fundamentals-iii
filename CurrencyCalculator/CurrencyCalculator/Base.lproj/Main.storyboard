@@ -66,7 +66,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="convertButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gfw-A9-CfL"/>
+                                            <action selector="convertButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLF-5h-uOm"/>
                                         </connections>
                                     </button>
                                 </subviews>

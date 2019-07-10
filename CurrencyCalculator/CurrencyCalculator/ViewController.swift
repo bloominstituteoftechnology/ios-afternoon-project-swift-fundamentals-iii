@@ -54,15 +54,28 @@ class ViewController: UIViewController {
         pesoButton.isSelected = false
         view.backgroundColor = .darkText
         convertButton.layer.cornerRadius = 20.5
+        
+        fromCurrencyTextField.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
     }
     
+    @objc func myTextFieldDidChange(_ textField: UITextField) {
+        
+        if let amountString = textField.text?.currencyInputFormatting() {
+            textField.text = amountString
+        }
+    }
+    
+    
     @IBAction func convertButtonPressed(_ sender: Any) {
-        guard let userInput = fromCurrencyTextField.text else {
+        
+        
+        guard let fromTextField = fromCurrencyTextField.text?.dropFirst(),
+            let fromTextFieldConverted = Double(fromTextField) else {
             toCurrencyTextField.text = "Invalid number entered"
             return
         }
         
-        toCurrencyTextField.text = currencyFormatter.string(for: convert(dollars: Double(userInput) ?? 0.00, to: currencyType))
+        toCurrencyTextField.text = currencyFormatter.string(for: convert(dollars: fromTextFieldConverted, to: currencyType))
     }
     
     @IBAction func cadButtonPressed(_ sender: Any) {
@@ -82,7 +95,34 @@ class ViewController: UIViewController {
         
     }
     
-
-
 }
 
+extension String {
+    
+    // formatting text for currency textField
+    func currencyInputFormatting() -> String {
+        
+        var number: NSNumber!
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currencyAccounting
+        formatter.currencySymbol = "$"
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        
+        var amountWithPrefix = self
+        
+        // remove from String: "$", ".", ","
+        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
+        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count), withTemplate: "")
+        
+        let double = (amountWithPrefix as NSString).doubleValue
+        number = NSNumber(value: (double / 100))
+        
+        // if first number is 0 or all numbers were deleted
+        guard number != 0 as NSNumber else {
+            return ""
+        }
+        
+        return formatter.string(from: number)!
+    }
+}
