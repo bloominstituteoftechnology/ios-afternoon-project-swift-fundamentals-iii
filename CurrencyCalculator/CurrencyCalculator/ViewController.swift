@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     
     var currencyType: CurrencyType = .cad
     
+    let colors = Colors()
+    
     var currencyFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -28,6 +30,13 @@ class ViewController: UIViewController {
     enum CurrencyType {
         case cad
         case peso
+    }
+    
+    func refresh() {
+        view.backgroundColor = UIColor.clear
+        let backgroundLayer = colors.gl
+        backgroundLayer?.frame = view.frame
+        view.layer.insertSublayer(backgroundLayer!, at: 0)
     }
     
     func convert(dollars: Double, to unit: CurrencyType) -> Double {
@@ -56,6 +65,7 @@ class ViewController: UIViewController {
         convertButton.layer.cornerRadius = 20.5
         
         fromCurrencyTextField.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
+        refresh()
     }
     
     @objc func myTextFieldDidChange(_ textField: UITextField) {
@@ -91,7 +101,7 @@ class ViewController: UIViewController {
         pesoButton.isSelected.toggle()
         cadButton.isSelected = false
         
-        toCurrencyLabel.text = "Currency (Peso):"
+        toCurrencyLabel.text = "Currency (MXN):"
         
     }
     
@@ -124,5 +134,18 @@ extension String {
         }
         
         return formatter.string(from: number)!
+    }
+}
+
+class Colors {
+    var gl:CAGradientLayer!
+    
+    init() {
+        let colorTop = UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 1.0).cgColor
+        
+        self.gl = CAGradientLayer()
+        self.gl.colors = [colorTop, colorBottom]
+        self.gl.locations = [0.0, 1.0]
     }
 }

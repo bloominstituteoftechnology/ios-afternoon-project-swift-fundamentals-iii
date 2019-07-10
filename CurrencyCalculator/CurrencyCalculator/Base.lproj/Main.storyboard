@@ -27,7 +27,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency (US):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNA-An-gqZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="166" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Iai-hq-RMH">
@@ -38,13 +38,13 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-X6-yse">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-X6-yse">
                                         <rect key="frame" x="0.0" y="38" width="382" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Curency (Peso):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3P-WR-Ed8">
-                                                <rect key="frame" x="0.0" y="0.0" width="166" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Currency (CAD):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3P-WR-Ed8">
+                                                <rect key="frame" x="0.0" y="0.0" width="174" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EvY-bY-sc3">
@@ -60,10 +60,10 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIS-zs-dbY">
                                         <rect key="frame" x="0.0" y="76" width="382" height="41"/>
-                                        <color key="backgroundColor" red="0.051061820090000001" green="1" blue="0.98946745039999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.66889083934347437" green="0.48426430026889905" blue="0.75846684639999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                         <state key="normal" title="Convert">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="convertButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLF-5h-uOm"/>
@@ -75,25 +75,25 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DT5-q7-kKO">
-                                <rect key="frame" x="156.5" y="431" width="101" height="34"/>
+                                <rect key="frame" x="126" y="424" width="162" height="48"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYY-gR-XPj">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="34"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                        <color key="tintColor" red="0.051061820090000001" green="1" blue="0.98946745039999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="66" height="48"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="tintColor" red="0.64259962118997649" green="0.50109235674852404" blue="0.76606123096446699" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="CAD">
-                                            <color key="titleColor" red="0.051061820090000001" green="1" blue="0.98946745039999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="cadButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lWw-x3-Vbc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FO5-HE-ORt">
-                                        <rect key="frame" x="48" y="0.0" width="53" height="34"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                        <color key="tintColor" red="0.051061820090000001" green="1" blue="0.98946745039999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="74" y="0.0" width="88" height="48"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="tintColor" red="0.64296669387124838" green="0.48224717541967277" blue="0.75852633248730961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Pesos">
-                                            <color key="titleColor" red="0.051061820090000001" green="1" blue="0.98946745039999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="pesoButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uUA-q3-5Nh"/>
@@ -102,7 +102,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="DT5-q7-kKO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6DK-Nc-gOf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KHh-dI-u37" secondAttribute="trailing" constant="16" id="Hqf-D3-NnI"/>
