@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="cqI-PN-T04">
+                                <rect key="frame" x="20.5" y="74" width="373" height="163.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5xY-JZ-mMT">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency (USD)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F00-yp-7lh">
+                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B3j-q1-9tQ">
+                                                <rect key="frame" x="186.5" y="0.0" width="186.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="gBF-oq-6VU">
+                                        <rect key="frame" x="0.0" y="61" width="373" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency (CAD)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KL0-ak-1lD">
+                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xec-6U-QY7">
+                                                <rect key="frame" x="186.5" y="0.0" width="186.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQW-I1-dP0">
+                                        <rect key="frame" x="0.0" y="121.5" width="373" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                        <state key="normal" title="Convert"/>
+                                        <connections>
+                                            <action selector="convertBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v59-cY-2yr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Np-Hh-rHy">
+                                <rect key="frame" x="0.0" y="237.5" width="414" height="624.5"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xQ0-KK-w03">
+                                        <rect key="frame" x="132" y="287.5" width="150" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="7dO-6b-Jcn"/>
+                                            <constraint firstAttribute="height" constant="50" id="V5d-Zr-SPR"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="CAD"/>
+                                            <segment title="MXN"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="currencySegControlAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="JW4-3a-hVD"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="xQ0-KK-w03" firstAttribute="centerY" secondItem="6Np-Hh-rHy" secondAttribute="centerY" id="5b7-Us-VRd"/>
+                                    <constraint firstItem="xQ0-KK-w03" firstAttribute="centerX" secondItem="6Np-Hh-rHy" secondAttribute="centerX" id="S17-jV-qPP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cqI-PN-T04" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="2f7-PF-w2n"/>
+                            <constraint firstItem="cqI-PN-T04" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.9" id="9bq-XS-4Yb"/>
+                            <constraint firstItem="cqI-PN-T04" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="Ez7-Qi-uS3"/>
+                            <constraint firstItem="6Np-Hh-rHy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fqj-SG-4Rg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6Np-Hh-rHy" secondAttribute="bottom" id="Qf6-aP-thT"/>
+                            <constraint firstItem="cqI-PN-T04" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZC4-Ui-1Vu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Np-Hh-rHy" secondAttribute="trailing" id="Zu5-gK-Qek"/>
+                            <constraint firstItem="6Np-Hh-rHy" firstAttribute="top" secondItem="cqI-PN-T04" secondAttribute="bottom" id="uw8-2s-Mvk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="fromCurrencyTextField" destination="B3j-q1-9tQ" id="K9b-lF-iRi"/>
+                        <outlet property="toCurrencyLbl" destination="KL0-ak-1lD" id="rLT-tc-DpP"/>
+                        <outlet property="toCurrencyTextField" destination="Xec-6U-QY7" id="XZH-aO-xeo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
