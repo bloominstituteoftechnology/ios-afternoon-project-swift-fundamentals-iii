@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     
     @IBOutlet weak var fromCurrencyTextField: UITextField!
     @IBOutlet weak var toCurrencyTextField: UITextField!
@@ -28,9 +27,9 @@ class ViewController: UIViewController {
         case peso
     }
     
+    var currencyType = CurrencyType.cad
+    
     @IBAction func convertButtonPressed(_ sender: Any) {
-        
-        
     }
     
     @IBAction func cadButtonPressed(_ sender: Any) {
