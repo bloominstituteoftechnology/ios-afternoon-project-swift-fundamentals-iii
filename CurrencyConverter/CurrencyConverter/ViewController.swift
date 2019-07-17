@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cadButton.isSelected = true
-        updateViews()
+//        updateViews()
     }
 
     // MARK: - Action Methods
