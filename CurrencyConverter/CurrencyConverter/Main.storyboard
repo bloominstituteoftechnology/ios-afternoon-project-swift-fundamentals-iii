@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="J7u-Gx-bTs">
             <objects>
-                <viewController id="Kct-El-eqL" sceneMemberID="viewController">
+                <viewController id="Kct-El-eqL" customClass="ViewController" customModule="CurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mpb-8F-bxm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,6 +61,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBO-Qi-U4z">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
                                                 <state key="normal" title="Convert"/>
+                                                <connections>
+                                                    <action selector="convertButtonPressed:" destination="Kct-El-eqL" eventType="touchUpInside" id="n2j-sV-kGT"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -75,10 +78,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBr-Mh-Zkh">
                                         <rect key="frame" x="0.0" y="0.0" width="31" height="30"/>
                                         <state key="normal" title="CAD"/>
+                                        <connections>
+                                            <action selector="cadButtonPressed:" destination="Kct-El-eqL" eventType="touchUpInside" id="rNh-ZL-SDN"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wol-iT-dPd">
                                         <rect key="frame" x="39" y="0.0" width="34" height="30"/>
                                         <state key="normal" title="MXN"/>
+                                        <connections>
+                                            <action selector="pesoButtonPressed:" destination="Kct-El-eqL" eventType="touchUpInside" id="rYk-U9-9yE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -93,6 +102,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hc1-as-BdO"/>
                     </view>
+                    <connections>
+                        <outlet property="cadButton" destination="SBr-Mh-Zkh" id="0dW-K5-EJH"/>
+                        <outlet property="fromCurrencyTextField" destination="JdD-I7-B0B" id="twR-fU-1x7"/>
+                        <outlet property="pesoButton" destination="wol-iT-dPd" id="nZL-EB-oB8"/>
+                        <outlet property="toCurrencyLabel" destination="f2o-ho-yah" id="CMZ-5n-EFW"/>
+                        <outlet property="toCurrencyTextField" destination="TPD-bw-97O" id="brY-AK-mIc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dJ-YY-AGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
