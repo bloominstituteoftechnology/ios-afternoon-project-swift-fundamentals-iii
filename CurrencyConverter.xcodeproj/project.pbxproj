@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E3E206B122DD1CB900384476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E206B022DD1CB900384476 /* AppDelegate.swift */; };
-		E3E206B322DD1CB900384476 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E206B222DD1CB900384476 /* ViewController.swift */; };
-		E3E206B622DD1CB900384476 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E206B422DD1CB900384476 /* Main.storyboard */; };
-		E3E206B822DD1CC100384476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3E206B722DD1CC100384476 /* Assets.xcassets */; };
-		E3E206BB22DD1CC100384476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E206B922DD1CC100384476 /* LaunchScreen.storyboard */; };
+		E378C03D22DE40F500CFAFB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378C03C22DE40F500CFAFB7 /* AppDelegate.swift */; };
+		E378C03F22DE40F500CFAFB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378C03E22DE40F500CFAFB7 /* ViewController.swift */; };
+		E378C04222DE40F500CFAFB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E378C04022DE40F500CFAFB7 /* Main.storyboard */; };
+		E378C04422DE40FB00CFAFB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E378C04322DE40FB00CFAFB7 /* Assets.xcassets */; };
+		E378C04722DE40FB00CFAFB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E378C04522DE40FB00CFAFB7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E3E206AD22DD1CB900384476 /* CurrencyConvert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConvert.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3E206B022DD1CB900384476 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E3E206B222DD1CB900384476 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E3E206B522DD1CB900384476 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E3E206B722DD1CC100384476 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E3E206BA22DD1CC100384476 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E3E206BC22DD1CC100384476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E378C03922DE40F500CFAFB7 /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E378C03C22DE40F500CFAFB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E378C03E22DE40F500CFAFB7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E378C04122DE40F500CFAFB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E378C04322DE40FB00CFAFB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E378C04622DE40FB00CFAFB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E378C04822DE40FB00CFAFB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E3E206AA22DD1CB900384476 /* Frameworks */ = {
+		E378C03622DE40F500CFAFB7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,71 +35,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E3E206A422DD1CB900384476 = {
+		E378C03022DE40F400CFAFB7 = {
 			isa = PBXGroup;
 			children = (
-				E3E206AF22DD1CB900384476 /* CurrencyConvert */,
-				E3E206AE22DD1CB900384476 /* Products */,
+				E378C03B22DE40F500CFAFB7 /* CurrencyConverter */,
+				E378C03A22DE40F500CFAFB7 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E3E206AE22DD1CB900384476 /* Products */ = {
+		E378C03A22DE40F500CFAFB7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E3E206AD22DD1CB900384476 /* CurrencyConvert.app */,
+				E378C03922DE40F500CFAFB7 /* CurrencyConverter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E3E206AF22DD1CB900384476 /* CurrencyConvert */ = {
+		E378C03B22DE40F500CFAFB7 /* CurrencyConverter */ = {
 			isa = PBXGroup;
 			children = (
-				E3E206B022DD1CB900384476 /* AppDelegate.swift */,
-				E3E206B222DD1CB900384476 /* ViewController.swift */,
-				E3E206B422DD1CB900384476 /* Main.storyboard */,
-				E3E206B722DD1CC100384476 /* Assets.xcassets */,
-				E3E206B922DD1CC100384476 /* LaunchScreen.storyboard */,
-				E3E206BC22DD1CC100384476 /* Info.plist */,
+				E378C03C22DE40F500CFAFB7 /* AppDelegate.swift */,
+				E378C03E22DE40F500CFAFB7 /* ViewController.swift */,
+				E378C04022DE40F500CFAFB7 /* Main.storyboard */,
+				E378C04322DE40FB00CFAFB7 /* Assets.xcassets */,
+				E378C04522DE40FB00CFAFB7 /* LaunchScreen.storyboard */,
+				E378C04822DE40FB00CFAFB7 /* Info.plist */,
 			);
-			path = CurrencyConvert;
+			path = CurrencyConverter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E3E206AC22DD1CB900384476 /* CurrencyConvert */ = {
+		E378C03822DE40F500CFAFB7 /* CurrencyConverter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E3E206BF22DD1CC100384476 /* Build configuration list for PBXNativeTarget "CurrencyConvert" */;
+			buildConfigurationList = E378C04B22DE40FB00CFAFB7 /* Build configuration list for PBXNativeTarget "CurrencyConverter" */;
 			buildPhases = (
-				E3E206A922DD1CB900384476 /* Sources */,
-				E3E206AA22DD1CB900384476 /* Frameworks */,
-				E3E206AB22DD1CB900384476 /* Resources */,
+				E378C03522DE40F500CFAFB7 /* Sources */,
+				E378C03622DE40F500CFAFB7 /* Frameworks */,
+				E378C03722DE40F500CFAFB7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CurrencyConvert;
-			productName = CurrencyConvert;
-			productReference = E3E206AD22DD1CB900384476 /* CurrencyConvert.app */;
+			name = CurrencyConverter;
+			productName = CurrencyConverter;
+			productReference = E378C03922DE40F500CFAFB7 /* CurrencyConverter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E3E206A522DD1CB900384476 /* Project object */ = {
+		E378C03122DE40F400CFAFB7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Vici Shaweddy";
 				TargetAttributes = {
-					E3E206AC22DD1CB900384476 = {
+					E378C03822DE40F500CFAFB7 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
-			buildConfigurationList = E3E206A822DD1CB900384476 /* Build configuration list for PBXProject "CurrencyConvert" */;
+			buildConfigurationList = E378C03422DE40F400CFAFB7 /* Build configuration list for PBXProject "CurrencyConverter" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -107,54 +107,54 @@
 				en,
 				Base,
 			);
-			mainGroup = E3E206A422DD1CB900384476;
-			productRefGroup = E3E206AE22DD1CB900384476 /* Products */;
+			mainGroup = E378C03022DE40F400CFAFB7;
+			productRefGroup = E378C03A22DE40F500CFAFB7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E3E206AC22DD1CB900384476 /* CurrencyConvert */,
+				E378C03822DE40F500CFAFB7 /* CurrencyConverter */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E3E206AB22DD1CB900384476 /* Resources */ = {
+		E378C03722DE40F500CFAFB7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3E206BB22DD1CC100384476 /* LaunchScreen.storyboard in Resources */,
-				E3E206B822DD1CC100384476 /* Assets.xcassets in Resources */,
-				E3E206B622DD1CB900384476 /* Main.storyboard in Resources */,
+				E378C04722DE40FB00CFAFB7 /* LaunchScreen.storyboard in Resources */,
+				E378C04422DE40FB00CFAFB7 /* Assets.xcassets in Resources */,
+				E378C04222DE40F500CFAFB7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E3E206A922DD1CB900384476 /* Sources */ = {
+		E378C03522DE40F500CFAFB7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3E206B322DD1CB900384476 /* ViewController.swift in Sources */,
-				E3E206B122DD1CB900384476 /* AppDelegate.swift in Sources */,
+				E378C03F22DE40F500CFAFB7 /* ViewController.swift in Sources */,
+				E378C03D22DE40F500CFAFB7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E3E206B422DD1CB900384476 /* Main.storyboard */ = {
+		E378C04022DE40F500CFAFB7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E3E206B522DD1CB900384476 /* Base */,
+				E378C04122DE40F500CFAFB7 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		E3E206B922DD1CC100384476 /* LaunchScreen.storyboard */ = {
+		E378C04522DE40FB00CFAFB7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E3E206BA22DD1CC100384476 /* Base */,
+				E378C04622DE40FB00CFAFB7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		E3E206BD22DD1CC100384476 /* Debug */ = {
+		E378C04922DE40FB00CFAFB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -223,7 +223,7 @@
 			};
 			name = Debug;
 		};
-		E3E206BE22DD1CC100384476 /* Release */ = {
+		E378C04A22DE40FB00CFAFB7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -278,36 +278,36 @@
 			};
 			name = Release;
 		};
-		E3E206C022DD1CC100384476 /* Debug */ = {
+		E378C04C22DE40FB00CFAFB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYPH2NW7MY;
-				INFOPLIST_FILE = CurrencyConvert/Info.plist;
+				INFOPLIST_FILE = CurrencyConverter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vicishaweddy.CurrencyConvert;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vicishaweddy.CurrencyConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		E3E206C122DD1CC100384476 /* Release */ = {
+		E378C04D22DE40FB00CFAFB7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZYPH2NW7MY;
-				INFOPLIST_FILE = CurrencyConvert/Info.plist;
+				INFOPLIST_FILE = CurrencyConverter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vicishaweddy.CurrencyConvert;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vicishaweddy.CurrencyConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -317,25 +317,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E3E206A822DD1CB900384476 /* Build configuration list for PBXProject "CurrencyConvert" */ = {
+		E378C03422DE40F400CFAFB7 /* Build configuration list for PBXProject "CurrencyConverter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E3E206BD22DD1CC100384476 /* Debug */,
-				E3E206BE22DD1CC100384476 /* Release */,
+				E378C04922DE40FB00CFAFB7 /* Debug */,
+				E378C04A22DE40FB00CFAFB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E3E206BF22DD1CC100384476 /* Build configuration list for PBXNativeTarget "CurrencyConvert" */ = {
+		E378C04B22DE40FB00CFAFB7 /* Build configuration list for PBXNativeTarget "CurrencyConverter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E3E206C022DD1CC100384476 /* Debug */,
-				E3E206C122DD1CC100384476 /* Release */,
+				E378C04C22DE40FB00CFAFB7 /* Debug */,
+				E378C04D22DE40FB00CFAFB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E3E206A522DD1CB900384476 /* Project object */;
+	rootObject = E378C03122DE40F400CFAFB7 /* Project object */;
 }

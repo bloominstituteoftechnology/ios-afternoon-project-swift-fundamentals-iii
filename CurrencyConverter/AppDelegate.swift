@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  CurrencyConvert
+//  CurrencyConverter
 //
-//  Created by Vici Shaweddy on 7/15/19.
+//  Created by Vici Shaweddy on 7/16/19.
 //  Copyright © 2019 Vici Shaweddy. All rights reserved.
 //
 
