@@ -60,22 +60,22 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLZ-Fl-V8R">
                                                 <rect key="frame" x="0.0" y="0.0" width="390" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Convert"/>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sGs-xA-WqQ">
-                                <rect key="frame" x="12" y="616" width="390" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="sGs-xA-WqQ">
+                                <rect key="frame" x="160" y="616" width="94" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gt3-fF-zvb">
-                                        <rect key="frame" x="0.0" y="0.0" width="336" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="30"/>
+                                        <state key="normal" title="CAD"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsT-lM-3v9">
-                                        <rect key="frame" x="344" y="0.0" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="60" y="0.0" width="34" height="30"/>
+                                        <state key="normal" title="Peso"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -83,9 +83,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SpH-Jl-Hwt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="07T-Ss-WH4"/>
-                            <constraint firstItem="sGs-xA-WqQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="Dfj-Q3-tIY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sGs-xA-WqQ" secondAttribute="bottom" constant="216" id="HwV-pT-5Vv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sGs-xA-WqQ" secondAttribute="trailing" constant="12" id="TWi-pp-IkU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sGs-xA-WqQ" secondAttribute="trailing" constant="160" id="fX5-6G-M8a"/>
+                            <constraint firstItem="sGs-xA-WqQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="160" id="llw-Af-Xpg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SpH-Jl-Hwt" secondAttribute="trailing" constant="12" id="nWS-fL-H1C"/>
                             <constraint firstItem="SpH-Jl-Hwt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="rgF-8P-t3G"/>
                             <constraint firstItem="sGs-xA-WqQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="saG-OL-Hvi"/>
@@ -95,6 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
