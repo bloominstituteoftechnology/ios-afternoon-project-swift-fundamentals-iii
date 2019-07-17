@@ -15,6 +15,8 @@ class ViewController: UIViewController {
         case peso
     }
     
+    // MARK: - Properties
+    
     var currencyFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -30,10 +32,43 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cadButton.isSelected = true
+        updateViews()
+    }
+
+    // MARK: - Action Methods
+    
+    @IBAction func convertButtonPressed(_ sender: Any) {
+        guard let currencyString = fromCurrencyTextField.text, let currency = Double(currencyString) else { return }
+        
+        if cadButton.isSelected {
+            toCurrencyLabel.text = "Currency (CAD)"
+            toCurrencyTextField.text = String(convert(dollars: currency, to: .cad))
+        } else if pesoButton.isSelected {
+            toCurrencyLabel.text = "Currency (Peso)"
+            toCurrencyTextField.text = String(convert(dollars: currency, to: .peso))
+        }
     }
     
-    func convert(dollars: Double, to unit: CurrencyType) -> String {
+    @IBAction func cadButtonPressed(_ sender: Any) {
+        guard let button = sender as? UIButton else { return }
         
+        button.isSelected.toggle()
+        
+        pesoButton.isSelected = false
+    }
+    
+    @IBAction func pesoButtonPressed(_ sender: Any) {
+        guard let button = sender as? UIButton else { return }
+        
+        button.isSelected.toggle()
+        
+        cadButton.isSelected = false
+    }
+    
+    // MARK: - Helper Methods
+    
+    // Convert the given US dollar value into either CAD or MXD
+    func convert(dollars: Double, to unit: CurrencyType) -> String {
         var totalAmount = 0.0
         
         if unit == .cad {
@@ -47,44 +82,13 @@ class ViewController: UIViewController {
         } else {
             return ""
         }
-        
-    }
-
-    @IBAction func convertButtonPressed(_ sender: Any) {
-        
-        guard let currencyString = fromCurrencyTextField.text else { return }
-        
-        guard let currency = Double(currencyString) else { return }
-        
-        if cadButton.isSelected {
-            toCurrencyLabel.text = "Currency (CAD)"
-            toCurrencyTextField.text = String(convert(dollars: currency, to: .cad))
-        } else if pesoButton.isSelected {
-            toCurrencyLabel.text = "Currency (Peso)"
-            toCurrencyTextField.text = String(convert(dollars: currency, to: .peso))
-        }
-        
     }
     
-    @IBAction func cadButtonPressed(_ sender: Any) {
+    func updateViews() {
         
-        guard let button = sender as? UIButton else { return }
-        
-        button.isSelected.toggle()
-        
-        pesoButton.isSelected = false
+        self.view.backgroundColor = Design.mainAppColor
+        self.navigationController?.navigationBar.barTintColor = Design.mainAppColor
         
     }
-    
-    @IBAction func pesoButtonPressed(_ sender: Any) {
-        
-        guard let button = sender as? UIButton else { return }
-        
-        button.isSelected.toggle()
-        
-        cadButton.isSelected = false
-        
-    }
-    
 }
 
