@@ -30,13 +30,15 @@ Currency Converter App
 3. In the `cadButtonTapped` action:
     * Toggle this button's `isSelected` state
     * Toggle the mxn button's `isSelected` state
-    * Check this button's state, and if `true`, set the `currency` property to `.cad`
-    * Display the currency in the `toCurrencyLabel` (so have it say "Currency (CAD)")
+    * Check this button's state, and if `true`:
+        * set the `currency` property to `.cad`
+        * Display the currency in the `toCurrencyLabel` (so have it say "Currency (CAD)")
 4. In the `mxnButtonTapped` action:
     * Toggle this button's `isSelected` state
     * Toggle the cad button's `isSelected` state
-    * Check this button's state, and if `true`, set the `currency` property to `.mxn`
-    * Display the currency in the `toCurrencyLabel` (so have it say "Currency (MXN)")
+    * Check this button's state, and if `true`:
+       * set the `currency` property to `.mxn`
+       * Display the currency in the `toCurrencyLabel` (so have it say "Currency (MXN)")
 5. Create a helper method to calculate the currency based on the Currency using the method signature:
 	```swift
 	func convert(_ dollars: Double) -> Double {
