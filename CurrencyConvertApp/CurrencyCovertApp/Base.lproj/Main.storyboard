@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CurrencyCovertApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gkc-Ys-Swg">
+                                <rect key="frame" x="20" y="69" width="121.5" height="61"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ytG-UA-I0W">
+                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency (US)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geU-Z0-ZZO">
+                                                <rect key="frame" x="0.0" y="0.0" width="121.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fjr-iT-htp">
+                                        <rect key="frame" x="0.0" y="40.5" width="121.5" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency (CAD)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5c-iX-0O3">
+                                                <rect key="frame" x="0.0" y="0.0" width="121.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="1"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yv4-x6-cY3">
+                                <rect key="frame" x="146.5" y="63" width="247.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dt-xE-QXd">
+                                <rect key="frame" x="147" y="146" width="121.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Convert"/>
+                                <connections>
+                                    <action selector="convertButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="grS-2a-fux"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IcF-Bw-u3j">
+                                <rect key="frame" x="170.5" y="433" width="73" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GX4-2Y-v4Q">
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="30"/>
+                                        <state key="normal" title="CAD"/>
+                                        <connections>
+                                            <action selector="cadButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T1f-Qz-7SV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54p-hS-hOy">
+                                        <rect key="frame" x="39" y="0.0" width="34" height="30"/>
+                                        <state key="normal" title="Peso"/>
+                                        <connections>
+                                            <action selector="pesoButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LBY-r8-Now"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ad9-GY-P9n">
+                                <rect key="frame" x="146.5" y="101" width="247.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IcF-Bw-u3j" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0ep-OS-yie"/>
+                            <constraint firstItem="ad9-GY-P9n" firstAttribute="leading" secondItem="gkc-Ys-Swg" secondAttribute="trailing" constant="5" id="3fd-g1-Uld"/>
+                            <constraint firstItem="Yv4-x6-cY3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="19" id="5t3-VI-Yig"/>
+                            <constraint firstItem="gkc-Ys-Swg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="FeO-Yo-MMD"/>
+                            <constraint firstItem="ad9-GY-P9n" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="101" id="JAb-S7-Gbk"/>
+                            <constraint firstItem="2dt-xE-QXd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="147" id="KLg-4b-7hG"/>
+                            <constraint firstItem="ad9-GY-P9n" firstAttribute="leading" secondItem="Yv4-x6-cY3" secondAttribute="leading" id="Oer-Ae-5gp"/>
+                            <constraint firstItem="IcF-Bw-u3j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R2D-TY-qAH"/>
+                            <constraint firstItem="ad9-GY-P9n" firstAttribute="top" secondItem="Yv4-x6-cY3" secondAttribute="bottom" constant="8" symbolic="YES" id="RGn-lw-ZMx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yv4-x6-cY3" secondAttribute="trailing" constant="20" id="col-BC-ra4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2dt-xE-QXd" secondAttribute="bottom" constant="680" id="fGj-57-dmT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2dt-xE-QXd" secondAttribute="trailing" constant="145.5" id="iAo-e7-7R7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ad9-GY-P9n" secondAttribute="trailing" constant="20" id="j7R-Uw-1CC"/>
+                            <constraint firstItem="ad9-GY-P9n" firstAttribute="trailing" secondItem="Yv4-x6-cY3" secondAttribute="trailing" id="qvZ-eu-G9e"/>
+                            <constraint firstItem="gkc-Ys-Swg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="uAC-Pg-S6E"/>
+                            <constraint firstItem="Yv4-x6-cY3" firstAttribute="leading" secondItem="gkc-Ys-Swg" secondAttribute="trailing" constant="5" id="xBN-E9-YFz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="cadButton" destination="GX4-2Y-v4Q" id="HBh-m0-8OQ"/>
+                        <outlet property="fromCurrencyTextField" destination="Yv4-x6-cY3" id="K0N-l4-bmj"/>
+                        <outlet property="pesoButton" destination="54p-hS-hOy" id="klS-EF-5yH"/>
+                        <outlet property="toCurrencyLabel" destination="W5c-iX-0O3" id="1lv-lj-blm"/>
+                        <outlet property="toCurrencyTextField" destination="ad9-GY-P9n" id="Rlf-1H-Y8S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
+        </scene>
+    </scenes>
+</document>
