@@ -8,9 +8,18 @@
 
 import UIKit
 
+enum Currency {
+    case cad
+    case mxn
+}
+
+
+
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
+    
+    var currency: Currency = .cad
     
     @IBOutlet weak var fromCurrencyTextField: UITextField!
     @IBOutlet weak var toCurrencyTextField: UITextField!
@@ -27,7 +36,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
-        
+        sender.isSelected.toggle()
+        mxnButton.isSelected.toggle()
+        if sender.isSelected == true {
+            currency = .cad
+            toCurrencyLabel.text = "Currency (CAD)"
+        }
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
