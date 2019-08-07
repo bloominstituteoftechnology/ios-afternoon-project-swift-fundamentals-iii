@@ -32,17 +32,18 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
-        guard let fromCurrencyText = fromCurrencyTextField.text else { return }
-        guard let fromCurrencyField = Double(fromCurrencyText) else {
-            print("An invalid number was entered.")
-            return }
-        
-        convert(fromCurrencyField)
-        
-        let nsCurrency = NSNumber(value: convert(fromCurrencyField))
-        let formattedCurrency1 = currencyFormatter.string(from: nsCurrency)
-        guard let formattedCurrency2 = formattedCurrency1 else { return }
-        toCurrencyTextField.text = String(formattedCurrency2)
+//        guard let fromCurrencyText = fromCurrencyTextField.text else { return }
+//        guard let fromCurrencyField = Double(fromCurrencyText) else {
+//            print("An invalid number was entered.")
+//            return }
+//
+//        convert(fromCurrencyField)
+//
+//        let nsCurrency = NSNumber(value: convert(fromCurrencyField))
+//        let formattedCurrency1 = currencyFormatter.string(from: nsCurrency)
+//        guard let formattedCurrency2 = formattedCurrency1 else { return }
+//        toCurrencyTextField.text = String(formattedCurrency2)
+        conversionProcess()
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
@@ -52,6 +53,8 @@ class ViewController: UIViewController {
             currency = .cad
             toCurrencyLabel.text = "Currency (CAD)"
         }
+        
+        conversionProcess()
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
@@ -61,6 +64,9 @@ class ViewController: UIViewController {
             currency = .mxn
             toCurrencyLabel.text = "Currency (MXN)"
         }
+        
+        conversionProcess()
+        
     }
     
     // MARK: - Helper Methods
@@ -85,6 +91,21 @@ class ViewController: UIViewController {
         formatter.numberStyle = .currency
         return formatter
     }()
+    
+    func conversionProcess() {
+        guard let fromCurrencyText = fromCurrencyTextField.text else { return }
+        guard let fromCurrencyField = Double(fromCurrencyText) else {
+            print("An invalid number was entered.")
+            return }
+        
+        convert(fromCurrencyField)
+        
+        let nsCurrency = NSNumber(value: convert(fromCurrencyField))
+        let formattedCurrency1 = currencyFormatter.string(from: nsCurrency)
+        guard let formattedCurrency2 = formattedCurrency1 else { return }
+        toCurrencyTextField.text = String(formattedCurrency2)
+    }
+  
     
 }
 
