@@ -20,18 +20,31 @@ class ViewController: UIViewController {
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
 
+    var currency = Currency()
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
-        
+        guard let usCurrencyString = fromCurrencyTextField.text,
+            let usCurrency = Double(usCurrencyString) else {return}
+        if cadButton.isSelected {
+          toCurrencyTextField.text = "\(currency.ConvertToCAD(from: usCurrency, to: .CAD))"
+        } else if mxnButton.isSelected {
+            toCurrencyTextField.text = "\(currency.convertToPeso(from: usCurrency, to: .MXPeso))"
+           
+        }
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
-        
+        toCurrencyLabel.text = "Currency (CAD)"
+         cadButton.isSelected.toggle()
+        mxnButton.isSelected.toggle()
+    
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
-        
+        toCurrencyLabel.text = "Currency (Peso)"
+        mxnButton.isSelected.toggle()
+        cadButton.isSelected.toggle()
     }
     
     // MARK: - Helper Methods

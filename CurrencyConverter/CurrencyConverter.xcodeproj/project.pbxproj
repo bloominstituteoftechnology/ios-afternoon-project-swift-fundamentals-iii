@@ -12,6 +12,7 @@
 		CEFE150722FB4E8200B98C25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFE150522FB4E8200B98C25 /* Main.storyboard */; };
 		CEFE150922FB4E8300B98C25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFE150822FB4E8300B98C25 /* Assets.xcassets */; };
 		CEFE150C22FB4E8300B98C25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFE150A22FB4E8300B98C25 /* LaunchScreen.storyboard */; };
+		DD68E6BB22FB733900560974 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68E6BA22FB733900560974 /* CurrencyModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		CEFE150822FB4E8300B98C25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEFE150B22FB4E8300B98C25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEFE150D22FB4E8300B98C25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD68E6BA22FB733900560974 /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				CEFE150122FB4E8200B98C25 /* AppDelegate.swift */,
 				CEFE150322FB4E8200B98C25 /* ViewController.swift */,
+				DD68E6BA22FB733900560974 /* CurrencyModel.swift */,
 				CEFE150522FB4E8200B98C25 /* Main.storyboard */,
 				CEFE150822FB4E8300B98C25 /* Assets.xcassets */,
 				CEFE150A22FB4E8300B98C25 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				CEFE150422FB4E8200B98C25 /* ViewController.swift in Sources */,
 				CEFE150222FB4E8200B98C25 /* AppDelegate.swift in Sources */,
+				DD68E6BB22FB733900560974 /* CurrencyModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
