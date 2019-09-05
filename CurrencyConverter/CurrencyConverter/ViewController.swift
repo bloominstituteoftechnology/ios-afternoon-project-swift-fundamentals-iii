@@ -8,12 +8,13 @@
 
 import UIKit
 
-
+// Currency Enum
 enum Currency {
     case cad
     case mxn
 }
 
+//Setting up a default currency
 var currency: Currency = .cad
 
 
@@ -43,10 +44,14 @@ class ViewController: UIViewController {
         }
         
         
-        toCurrencyTextField.text = String(convert(dollarDouble))
+        // Using the Number Formatter
+        let convertedDollar = convert(dollarDouble)
         
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+      
+        toCurrencyTextField.text = formatter.string(from: convertedDollar as NSNumber) ?? ""
     }
-    
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
         
@@ -82,19 +87,14 @@ class ViewController: UIViewController {
             let convertion = canDollar * dollars
             
             return convertion
-            
         }
         else {
             let mxnDollar = 19.70
             let convertion = mxnDollar * dollars
             
             return convertion
-            
         }
     }
-        
-        
-        
 }
 
 
