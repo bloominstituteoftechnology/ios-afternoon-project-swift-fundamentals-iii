@@ -39,16 +39,22 @@ class ViewController: UIViewController {
             return
         }
         
+        var currencyFormatter: NumberFormatter = {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            return formatter
+        }()
+        
         let amount = convert(dollars)
         
-        toCurrencyTextField.text = "\(amount)."
+        toCurrencyTextField.text = currencyFormatter.string(for: amount)
         
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
         mxnButton.isSelected.toggle()
-        if cadButton.isSelected {
+        if cadButton.isSelected == true {
             currency = .cad
             toCurrencyLabel.text = "Currency (CAD)"
         }
@@ -57,7 +63,7 @@ class ViewController: UIViewController {
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
         cadButton.isSelected.toggle()
-        if mxnButton.isSelected {
+        if mxnButton.isSelected == true {
             currency = .mxn
             toCurrencyLabel.text = "Currency (MXN)"
         }
