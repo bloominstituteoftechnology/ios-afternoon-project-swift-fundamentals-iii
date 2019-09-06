@@ -31,13 +31,15 @@ class ViewController: UIViewController {
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         
-        guard let currencyLabelString = toCurrencyLabel.text else {
+        guard let fromCurrencyString = toCurrencyLabel.text else {
             return
         }
-        guard let fromCurrency = Double(currencyLabelString) else {
-            print("N/A")
+        guard let fromCurrency = Double(fromCurrencyString) else {
+            print("Invalid number")
             return
         }
+        
+        // having issues w/ the convert button, it's only printing "Invalid number"
         
     }
     
@@ -46,9 +48,11 @@ class ViewController: UIViewController {
         sender.isSelected.toggle()
         
         if cadButton.isSelected {
+            mxnButton.isSelected = false
             currency = .cad
             toCurrencyLabel.text = "Currency (CAD)"
         } else {
+            cadButton.isSelected = true
             currency = .mxn
             toCurrencyLabel.text = "Currency (MXN)"
         }
@@ -59,17 +63,32 @@ class ViewController: UIViewController {
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
         
-        if cadButton.isSelected {
-
+        if mxnButton.isSelected {
+            cadButton.isSelected = false
+            currency = .mxn
+            toCurrencyLabel.text = "Currency (MXN)"
+        } else {
+            mxnButton.isSelected = true
+            currency = .mxn
+            toCurrencyLabel.text = "Currency (CAD)"
+        
     }
     
     // MARK: - Helper Methods
 
     func convert(_ dollars: Double) -> Double {
+        var converted: Double
         
+        if currency == Currency.cad {
+            converted = dollars * 1.33
+        } else {
+            converted = dollars * 19.70
+        }
+        return converted
     }
     
     
     }
 }
 //test
+//
