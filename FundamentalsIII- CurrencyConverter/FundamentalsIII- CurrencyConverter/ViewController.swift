@@ -50,17 +50,16 @@ class ViewController: UIViewController {
         cadButton.isSelected = true
         pseoButton.isSelected = false
         toCurrencyLabel.text = "Currency (CAD)"
-        fromCurrencyTextField.text = ""
         toCurrencyTextField.text = ""
-        
+        convertButtonPressed(self)
     }
     @IBAction func pesoButtonPressed(_ sender: Any) {
         currencyType = .peso
         pseoButton.isSelected = true
         cadButton.isSelected = false
         toCurrencyLabel.text = "Currency (Peso)"
-        fromCurrencyTextField.text = ""
         toCurrencyTextField.text = ""
+         convertButtonPressed(self)
     }
 
 
