@@ -51,6 +51,9 @@ class ViewController: UIViewController {
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         
+        guard let fromCurrencyText = fromCurrencyTextField.text, !fromCurrencyText.isEmpty, let fromCurrency = Double(fromCurrencyText)  else { return }
+        
+       toCurrencyTextField.text =  String(convert(fromCurrency))
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
