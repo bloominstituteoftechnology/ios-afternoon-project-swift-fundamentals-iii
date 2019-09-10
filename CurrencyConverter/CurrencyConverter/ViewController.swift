@@ -53,7 +53,16 @@ class ViewController: UIViewController {
         
         guard let fromCurrencyText = fromCurrencyTextField.text, !fromCurrencyText.isEmpty, let fromCurrency = Double(fromCurrencyText)  else { return }
         
-       toCurrencyTextField.text =  String(convert(fromCurrency))
+        let toCurrency = convert(fromCurrency)
+        
+        let currencyFormatter: NumberFormatter = {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            return formatter
+        }()
+        
+     //  toCurrencyTextField.text =  String(convert(fromCurrency))
+        toCurrencyTextField.text = currencyFormatter.string(from: toCurrency as NSNumber)
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
