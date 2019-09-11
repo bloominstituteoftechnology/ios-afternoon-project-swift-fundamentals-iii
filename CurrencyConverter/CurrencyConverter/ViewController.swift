@@ -16,11 +16,12 @@ enum Currency {
 // I was relectant to declare a global variable but couldn't otherwise figure out how to access the
 // state of currency from inside seperate functions.
 
-var currency: Currency = .cad
+
 
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
+    var currency: Currency = .cad
     
     @IBOutlet weak var fromCurrencyTextField: UITextField!
     @IBOutlet weak var toCurrencyTextField: UITextField!
