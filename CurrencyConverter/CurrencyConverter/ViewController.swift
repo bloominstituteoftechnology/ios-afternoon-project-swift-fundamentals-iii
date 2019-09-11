@@ -13,14 +13,11 @@ enum Currency {
     case mxn
 }
 
-// I was relectant to declare a global variable but couldn't otherwise figure out how to access the
-// state of currency from inside seperate functions.
-
-
 
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
+    // declared a currency variable for the function to choose the correct user selected conversion
     var currency: Currency = .cad
     
     @IBOutlet weak var fromCurrencyTextField: UITextField!
@@ -44,19 +41,6 @@ class ViewController: UIViewController {
             return
         }
  
-        /*  I commented out the next block of code because I had first declared the currency variable of type Currency in this location.  However, when I did that I couldn't change the status in the ButtonTapped functions.  The only way I figured out to make it work was to declare it as a global variable.  I left this next section here so I could compare it with whatever the best solution might be.
-         
-        // Declare a variable to keep track of the desired conversion
-            var currency: Currency = .cad
-        // Set the current status of currency to match the appropriate button that is selected
-        
-       if cadButton.isSelected {
-            currency = .cad
-        } else if mxnButton.isSelected {
-            currency = .mxn
-        }
-         */
- 
         // Call the appropriate currency conversion function, convertToCAD or convertToMXN
         // The return is a string, formatted into the correct currency and is displayed in the result field
         // It also will change the label next to result to match the button pressed
@@ -72,6 +56,8 @@ class ViewController: UIViewController {
             toCurrencyTextField.text = "\(convertedMXN)"
         }
     }
+    
+    //  The two action functions will toggle the selection property of both buttons and set the correct currency
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
