@@ -30,10 +30,16 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
-        print("Yay you've pressed convert")
-        
-        
+        guard let convertedCurrencyField = fromCurrencyTextField.text else { return
+        }
+        guard let convertedCurrency = Double(convertedCurrencyField) else {
+            return
+        }
+        let convertedText = convert(convertedCurrency)
+        toCurrencyTextField.text = "\(convertedText)"
     }
+    
+    
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
         
@@ -67,13 +73,15 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Helper Method
-    func convertCAD(_ dollars: Double) -> Double {
-    let conversion = dollars * 1.31
+   
+    func convert(_ dollars: Double) -> Double {
+        var conversion: Double
+        if currency == .cad {
+            conversion = dollars * 1.31
+            return conversion
+        } else {
+            conversion = dollars * 19.50
+        }
         return conversion
     }
-    
-    func convertMXN(_ dollars: Double) -> Double {
-        let conversion = dollars * 19.50
-        return conversion
 }
-
