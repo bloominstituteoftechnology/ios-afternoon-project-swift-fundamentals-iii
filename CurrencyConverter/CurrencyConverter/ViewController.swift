@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum Currency {
+    case cad
+    case mxn
+}
+
+let currency: Currency = Currency.cad
+
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
@@ -16,6 +23,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var toCurrencyTextField: UITextField!
     
     @IBOutlet weak var toCurrencyLabel: UILabel!
+        print("Currency (CAD)")
+    
     
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
