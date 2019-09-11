@@ -4,6 +4,9 @@ Create a Currency Convert app that can convert from US dollars (USD) to Canadian
 
 Get the currency conversion value from Google:
 
+    $1 USD to $1.31 CAD
+    $1 USD to $19.50 MXN
+
 On August 7th, 2019 they were:
 
 	$1 USD to $1.33 CAD
