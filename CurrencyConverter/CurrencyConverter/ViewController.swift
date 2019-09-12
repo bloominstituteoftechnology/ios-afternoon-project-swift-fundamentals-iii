@@ -13,7 +13,7 @@ enum Currency {
     case mxn
 }
 
-let currency = Currency.cad
+//let currency = Currency.cad
 
 class ViewController: UIViewController {
     
@@ -42,39 +42,66 @@ class ViewController: UIViewController {
             return
         }
         
-        let canadianDollars = currencyReturnInCAD(USD: currencyUSD)
-        toCurrencyTextField.text = "\(canadianDollars) CAD"
+        
+        guard let conversion = convert(dollars: currencyUSD) else {
+          toCurrencyTextField.text =
+        }
+        
+//        let canadianDollars = currencyReturnInCAD(USD: currencyUSD)
+//        toCurrencyTextField.text = "\(canadianDollars) CAD"
     }
     
     
     
     @IBAction func cadButtonTapped(_ sender: Any) {
-        guard let cadButton = sender as? UIButton else {
-            return
+        
+        if cadButton.isSelected == true {
+            toCurrencyLabel.text = "Currency (CAD)"
         }
         
-        guard let mxnButton = sender as? UIButton else {
-            return
-        }
+        mxnButton.isSelected = false
         
-        if let cadButton.isSelected == true {
-            
-        }
+        currency = Currency.cad
+        
+        
     }
    
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
-     
-        }
+        
+        cadButton.isSelected = false
+        
+        mxnButton.isSelected = true
+        
+        currency = Currency.mxn
+        
+        toCurrencyLabel.text = "Currency (MXN)"
+    }
+
         
     
     
     // MARK: - Helper Methods //Functions
     
-    func currencyReturnInCAD(USD: Double) -> Double { // func to go along my func converButtonTapped when CAD currency is chosen
-        let canadianDollars = USD * 1.31
-        return canadianDollars
-    }
+    func convert(dollars: Double) -> Double {
+        var conversion: Double
+        
+        if currency == Currency.cad {
+            conversion = dollars * 1.33
+            return conversion
+        } else {
+                conversion = dollars * 19.7
+                return conversion
+            }
+        }
+    
+    
+    //    func currencyReturnInCAD(USD: Double) -> Double { // func to go along my func convertButtonTapped when CAD currency is chosen
+//        let canadianDollars = USD * 1.33
+//        return canadianDollars
+//    }
+    
+    
     
 }
 
