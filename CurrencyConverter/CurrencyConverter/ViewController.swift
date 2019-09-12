@@ -22,6 +22,13 @@ class ViewController: UIViewController {
 
     // MARK: - Actions
     
+    
+    
+    enum Currency {
+        case Mxn
+        case Cnd
+    }
+    
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         
     }
