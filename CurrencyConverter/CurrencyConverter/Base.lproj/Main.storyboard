@@ -60,7 +60,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Convert"/>
                                         <connections>
-                                            <action selector="convertButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EQt-F5-7xW"/>
+                                            <action selector="convertButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ztB-86-ojB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -75,16 +75,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="42" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <state key="normal" title="CAD"/>
+                                        <state key="selected" title="CAD"/>
                                         <connections>
-                                            <action selector="cadButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="87l-uK-isJ"/>
+                                            <action selector="cadButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bi3-Ud-hVS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwJ-IE-oX9">
                                         <rect key="frame" x="50" y="0.0" width="46" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <state key="normal" title="MXN"/>
+                                        <state key="selected" title="MXN"/>
                                         <connections>
-                                            <action selector="mxnButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vye-s7-BZq"/>
+                                            <action selector="mxnButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kRV-yd-Pkt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -101,15 +103,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="cadButton" destination="4i2-QK-bC3" id="Gfq-KE-sz7"/>
-                        <outlet property="fromCurrencyTextField" destination="Q97-bt-eeg" id="1pq-E8-bco"/>
-                        <outlet property="mxnButton" destination="LwJ-IE-oX9" id="fPI-cC-XHK"/>
+                        <outlet property="cadButton" destination="4i2-QK-bC3" id="jkG-Zq-VgE"/>
+                        <outlet property="fromCurrencyTextField" destination="Q97-bt-eeg" id="acQ-5M-XfU"/>
+                        <outlet property="mxnButton" destination="LwJ-IE-oX9" id="aYl-V3-vLP"/>
                         <outlet property="toCurrencyLabel" destination="Ul6-sE-H5T" id="jpf-rX-myk"/>
                         <outlet property="toCurrencyTextField" destination="0Aa-0l-hRP" id="CDJ-6M-Pob"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="50.724637681159422" y="20.758928571428569"/>
         </scene>
     </scenes>
 </document>
