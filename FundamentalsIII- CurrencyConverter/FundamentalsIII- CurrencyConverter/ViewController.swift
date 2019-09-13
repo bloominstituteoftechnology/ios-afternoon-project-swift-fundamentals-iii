@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var toCurrencyLabel: UILabel!
     //We linked our UI button to the screen
     @IBOutlet weak var cadButton: UIButton!
-    @IBOutlet weak var pseoButton: UIButton!
+    @IBOutlet weak var pesoButton: UIButton!
+    @IBOutlet weak var GBPButton: UIButton!
+    @IBOutlet weak var EURButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,8 @@ class ViewController: UIViewController {
     enum CurrencyType {
         case cad
         case peso
+        case GBP
+        case EUR
     }
     
     
@@ -47,33 +51,64 @@ class ViewController: UIViewController {
         //this is changing the currency text field text to equal our above consatnt,as a string. using the ocnvert function we announced below. this will convert the current value to whichever currency type is selected.
         toCurrencyTextField.text = currencyFormat.string(from: NSNumber(value: convert(dollars: dollars, to: currencyType)))
     }
+    
     @IBAction func cadButtonPressed(_ sender: Any) {
-        
         currencyType = .cad
         cadButton.isSelected = true
-        pseoButton.isSelected = false
+        pesoButton.isSelected = false
+        GBPButton.isSelected = false
+        EURButton.isSelected = false
         toCurrencyLabel.text = "Currency (CAD)"
         toCurrencyTextField.text = ""
         convertButtonPressed(self)
     }
     @IBAction func pesoButtonPressed(_ sender: Any) {
         currencyType = .peso
-        pseoButton.isSelected = true
+        pesoButton.isSelected = true
         cadButton.isSelected = false
+        GBPButton.isSelected = false
+        EURButton.isSelected = false
         toCurrencyLabel.text = "Currency (Peso)"
         toCurrencyTextField.text = ""
          convertButtonPressed(self)
     }
+    @IBAction func GBPButtonPressed(_ sender: Any) {
+        currencyType = .GBP
+        GBPButton.isSelected = true
+        cadButton.isSelected = false
+        pesoButton.isSelected = false
+        EURButton.isSelected = false
+        toCurrencyLabel.text = "Currency (GBP)"
+        toCurrencyTextField.text = ""
+        convertButtonPressed(self)
+    }
+    @IBAction func EURButtonPressed(_ sender: Any) {
+        currencyType = .EUR
+        EURButton.isSelected = true
+        GBPButton.isSelected = false
+        cadButton.isSelected = false
+        pesoButton.isSelected = false
+        toCurrencyLabel.text = "Currency (EUR)"
+        toCurrencyTextField.text = ""
+        convertButtonPressed(self)
+    }
+    
 
-
+//this is the function
 func convert(dollars: Double, to unit: CurrencyType) -> Double {
-    let cadPrice: Double = 1.31
-    let pesoPrice: Double = 19.10
+    let cadPrice: Double = 1.33
+    let pesoPrice: Double = 19.70
+    let poundPrice: Double = 0.189166
+    let EURPrice: Double = 0.90
     switch unit {
     case .cad:
         return dollars * cadPrice
     case .peso:
         return dollars * pesoPrice
+    case .GBP:
+        return dollars * poundPrice
+    case .EUR:
+        return dollars * EURPrice
     }
 }
 }

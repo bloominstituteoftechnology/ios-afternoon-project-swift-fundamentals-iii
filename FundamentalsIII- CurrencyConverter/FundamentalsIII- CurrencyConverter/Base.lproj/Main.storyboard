@@ -73,7 +73,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8.4000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="yfY-Wo-MdL">
-                                <rect key="frame" x="174.5" y="437" width="73.5" height="30"/>
+                                <rect key="frame" x="136" y="437" width="150.5" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1t-hM-9Yk">
                                         <rect key="frame" x="0.0" y="0.0" width="31" height="30"/>
@@ -87,6 +87,22 @@
                                         <state key="normal" title="Peso"/>
                                         <connections>
                                             <action selector="pesoButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cVh-kh-iVZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZ7-n3-B9F">
+                                        <rect key="frame" x="82" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="GBP"/>
+                                        <connections>
+                                            <action selector="GBPButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uKj-lB-8GJ"/>
+                                            <action selector="cadButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eV6-km-JAc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ect-gz-ZuK">
+                                        <rect key="frame" x="120.5" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="EUR"/>
+                                        <connections>
+                                            <action selector="EURButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="maa-p0-Boc"/>
+                                            <action selector="pesoButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Beh-go-ijl"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -103,9 +119,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="EURButton" destination="Ect-gz-ZuK" id="iif-bh-Mm8"/>
+                        <outlet property="GBPButton" destination="BZ7-n3-B9F" id="4lA-9C-no5"/>
                         <outlet property="cadButton" destination="P1t-hM-9Yk" id="v6z-Jh-On7"/>
                         <outlet property="fromCurrencyTextField" destination="Fy9-Ze-Rgb" id="Nsh-Wy-Ozg"/>
-                        <outlet property="pseoButton" destination="uC7-Ma-0MC" id="Cfm-RU-S40"/>
+                        <outlet property="pesoButton" destination="uC7-Ma-0MC" id="Cfm-RU-S40"/>
                         <outlet property="toCurrencyLabel" destination="g7W-zc-dk3" id="ASn-Xy-81k"/>
                         <outlet property="toCurrencyTextField" destination="XEw-Uk-uGL" id="Uks-3A-teH"/>
                     </connections>
