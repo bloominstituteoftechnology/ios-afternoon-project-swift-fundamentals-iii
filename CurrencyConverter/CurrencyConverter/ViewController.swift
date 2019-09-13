@@ -43,41 +43,33 @@ class ViewController: UIViewController {
         }
         
         
-        guard let conversion = convert(dollars: currencyUSD) else {
-          toCurrencyTextField.text =
-        }
+        let conversion = convert(dollars: currencyUSD)
+        toCurrencyTextField.text = "\(conversion)"
         
-//        let canadianDollars = currencyReturnInCAD(USD: currencyUSD)
-//        toCurrencyTextField.text = "\(canadianDollars) CAD"
     }
     
     
-    
-    @IBAction func cadButtonTapped(_ sender: Any) {
+    @IBAction func cadButtonTapped(_ sender: UIButton) {
         
-        if cadButton.isSelected == true {
+        sender.isSelected.toggle()
+        mxnButton.isSelected.toggle()
+        if sender.isSelected {
+            currency = .cad
             toCurrencyLabel.text = "Currency (CAD)"
         }
-        
-        mxnButton.isSelected = false
-        
-        currency = Currency.cad
-        
-        
     }
+    
    
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
         
-        cadButton.isSelected = false
-        
-        mxnButton.isSelected = true
-        
-        currency = Currency.mxn
-        
-        toCurrencyLabel.text = "Currency (MXN)"
+        sender.isSelected.toggle()
+        cadButton.isSelected.toggle()
+        if sender.isSelected {
+            currency = .mxn
+            toCurrencyLabel.text = "Currency (MXN)"
+        }
     }
-
         
     
     
@@ -94,14 +86,6 @@ class ViewController: UIViewController {
                 return conversion
             }
         }
-    
-    
-    //    func currencyReturnInCAD(USD: Double) -> Double { // func to go along my func convertButtonTapped when CAD currency is chosen
-//        let canadianDollars = USD * 1.33
-//        return canadianDollars
-//    }
-    
-    
-    
+
 }
 
