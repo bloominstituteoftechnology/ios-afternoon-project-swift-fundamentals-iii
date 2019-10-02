@@ -38,6 +38,11 @@ class ViewController: UIViewController {
     ]
     var currency: Currency = .cad
     let currencyLabelPrefix = "Currency"
+    var currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
 
     // MARK: - Actions
     
@@ -52,7 +57,8 @@ class ViewController: UIViewController {
         }
         let toAmount = convert(fromAmount)
         
-        toCurrencyTextField.text = String(toAmount)
+        fromCurrencyTextField.text = currencyFormatter.string(from: fromAmount as NSNumber)
+        toCurrencyTextField.text = currencyFormatter.string(from: toAmount as NSNumber)
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
