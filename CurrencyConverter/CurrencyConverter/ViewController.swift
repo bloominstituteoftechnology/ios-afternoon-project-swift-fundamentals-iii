@@ -24,29 +24,22 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var toCurrencyLabel: UILabel!
     
-    
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
 
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
-        guard let fromCurrencyString = fromCurrencyTextField.text else {
-            return
-        }
-        guard let fromCurrency = Double(fromCurrencyString) else {
-            print("Invalid number")
-            return
-        }
+        guard let fromString = fromCurrencyTextField.text else { return }
+        guard let fromDouble = Double(fromString) else { return }
         
-    var finalAnswer = convert(fromCurrency)
-    
-    toCurrencyTextField.text = String(finalAnswer)
-   
+        let answer = convert(fromDouble)
+        toCurrencyTextField.text = String(answer)
+        
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
-        sender.isSelected.toggle()
+        cadButton.isSelected.toggle()
         mxnButton.isSelected.toggle()
         
         if cadButton.isSelected {
@@ -54,32 +47,29 @@ class ViewController: UIViewController {
             toCurrencyLabel.text = "Currency (CAD)"
         }
         
-        
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
-        sender.isSelected.toggle()
         cadButton.isSelected.toggle()
+        mxnButton.isSelected.toggle()
         
         if mxnButton.isSelected {
             currency = .mxn
             toCurrencyLabel.text = "Currency (MXN)"
         }
-        
     }
     
     // MARK: - Helper Methods
     
     func convert(_ dollars: Double) -> Double {
-        let answer: Double
-        
-        if currency == .cad {
-            answer = dollars * 1.33
+        if currency == .mxn {
+            return dollars * 19.70
         } else {
-            answer = dollars * 19.7
+            return dollars * 1.33
         }
-        return answer
     }
+    
+    
     
 }
 
