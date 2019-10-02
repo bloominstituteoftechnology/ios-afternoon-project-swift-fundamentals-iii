@@ -51,7 +51,12 @@ class ViewController: UIViewController {
             print("ERROR: invalid 'from' text")
             return
         }
-        guard let fromAmount = Double(fromAmountText) else {
+        let fromAmountDoubleText: String = {
+            let text = fromAmountText.replacingOccurrences(of: "$", with: "")
+            return text.replacingOccurrences(of: ",", with: "")
+        }()
+        print(fromAmountDoubleText)
+        guard let fromAmount = Double(fromAmountDoubleText) else {
             print("ERROR: invalid 'from' amount")
             return
         }
