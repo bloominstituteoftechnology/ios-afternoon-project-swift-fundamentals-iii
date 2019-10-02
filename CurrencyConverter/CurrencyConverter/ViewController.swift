@@ -65,25 +65,7 @@ class ViewController: UIViewController {
         toCurrencyTextField.text = currencyFormatter.string(from: toAmount as NSNumber)
     }
     
-    @IBAction func cadButtonTapped(_ sender: UIButton) {
-        switchCurrency(sender)
-    }
-    
-    @IBAction func mxnButtonTapped(_ sender: UIButton) {
-        switchCurrency(sender)
-    }
-    
-    // MARK: - Helper Methods
-    
-    func convert(_ dollars: Double) -> Double {
-        guard let conversionRate = conversionRates[currency] else {
-            print("ERROR: currency conversion rate is invalid")
-            return 0
-        }
-        return dollars * conversionRate
-    }
-    
-    func switchCurrency(_ sender: UIButton) {
+    @IBAction func currencyButtonTapped(_ sender: UIButton) {
         sender.isSelected = true
         for button in currencyButtons {
             if button.key == sender {
@@ -95,6 +77,16 @@ class ViewController: UIViewController {
         }
         print("current currency: \(currency.rawValue)")
         convertButtonTapped(sender)
+    }
+    
+    // MARK: - Helper Methods
+    
+    func convert(_ dollars: Double) -> Double {
+        guard let conversionRate = conversionRates[currency] else {
+            print("ERROR: currency conversion rate is invalid")
+            return 0
+        }
+        return dollars * conversionRate
     }
     
     // TODO: get all currency buttons programatically rather than explicitly
