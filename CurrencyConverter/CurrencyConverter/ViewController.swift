@@ -85,7 +85,7 @@ class ViewController: UIViewController {
                 button.key.isSelected = false
             }
         }
-        print("current currency: \(currency.rawValue)")
+        //print("current currency: \(currency.rawValue)")
         convertButtonTapped(sender)
     }
     
