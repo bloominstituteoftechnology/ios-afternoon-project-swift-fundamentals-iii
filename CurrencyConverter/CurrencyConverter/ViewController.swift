@@ -13,6 +13,8 @@ enum Currency : String {
     case mxn = "MXN"
 }
 
+// TODO: implement `CurrencyButton : UIButton` type?
+
 class ViewController: UIViewController {
     //: as of 2019-10-02 12:14 PDT:
     //:
@@ -29,9 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
     
-    // TODO: implement currencyButton type?
-    // TODO: implement dict of currencyButtons
-    //var currencyButtons: [Currency : UIButton] = [:]
+    var currencyButtons: [UIButton : Currency] = [:]
     var conversionRates: [Currency : Double] = [
         .cad : 1.33,
         .mxn : 19.78
@@ -55,7 +55,6 @@ class ViewController: UIViewController {
             let text = fromAmountText.replacingOccurrences(of: "$", with: "")
             return text.replacingOccurrences(of: ",", with: "")
         }()
-        print(fromAmountDoubleText)
         guard let fromAmount = Double(fromAmountDoubleText) else {
             print("ERROR: invalid 'from' amount")
             return
@@ -67,27 +66,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
-        cadButton.isSelected.toggle()
-        mxnButton.isSelected = !cadButton.isSelected // ensure that other button is opposite
-        
-        if cadButton.isSelected {
-            currency = .cad
-            toCurrencyLabel.text = "\(currencyLabelPrefix) (\(currency.rawValue))"
-        }
-        
-        convertButtonTapped(cadButton) // automatically convert when currency changed
+        switchCurrency(sender)
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
-        mxnButton.isSelected.toggle()
-        cadButton.isSelected = !mxnButton.isSelected // ensure that other button is opposite
-        
-        if mxnButton.isSelected {
-            currency = .mxn
-            toCurrencyLabel.text = "\(currencyLabelPrefix) (\(currency.rawValue))"
-        }
-        
-        convertButtonTapped(mxnButton)
+        switchCurrency(sender)
     }
     
     // MARK: - Helper Methods
@@ -100,15 +83,29 @@ class ViewController: UIViewController {
         return dollars * conversionRate
     }
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//
-//    }
+    func switchCurrency(_ sender: UIButton) {
+        sender.isSelected = true
+        for button in currencyButtons {
+            if button.key == sender {
+                currency = button.value
+                toCurrencyLabel.text = "\(currencyLabelPrefix) (\(currency.rawValue))"
+            } else {
+                button.key.isSelected = false
+            }
+        }
+        print("current currency: \(currency.rawValue)")
+        convertButtonTapped(sender)
+    }
     
-    // TODO: make generic `currencyButtonTapped` func
-//    func toggleCurrency(_ sender: UIButton) {
-//
-//    }
+    // TODO: get all currency buttons programatically rather than explicitly
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // populate currencyButtons dict for currency switching
+        currencyButtons = [
+            cadButton : .cad,
+            mxnButton : .mxn
+        ]
+    }
 }
 
