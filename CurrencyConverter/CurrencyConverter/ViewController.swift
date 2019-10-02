@@ -26,69 +26,70 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
-
+    
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
+        guard let currencyTextField = fromCurrencyTextField.text else { return }
+
+        guard let currencyNumber = Double(currencyTextField) else {
+            print("Dollar amount not valid.")
+            return }
+
+        var conversion: Double
         
-        guard let fromCurrencyString = toCurrencyLabel.text else {
-            return
-        }
-        guard let fromCurrency = Double(fromCurrencyString) else {
-            print("Invalid number")
-            return
+        if cadButton.isSelected {
+            conversion = convert(currencyNumber)
+        } else {
+            conversion = convert(currencyNumber)
         }
         
-        // having issues w/ the convert button, it's only printing "Invalid number"
+        toCurrencyTextField.text = "\(conversion)"
         
     }
     
-    
     @IBAction func cadButtonTapped(_ sender: UIButton) {
-        sender.isSelected.toggle()
+        cadButton.isSelected.toggle()
+        mxnButton.isSelected.toggle()
         
         if cadButton.isSelected {
-            mxnButton.isSelected = false
             currency = .cad
             toCurrencyLabel.text = "Currency (CAD)"
         } else {
-            cadButton.isSelected = true
-            currency = .mxn
-            toCurrencyLabel.text = "Currency (MXN)"
+            return
         }
         
-            
+        
+        
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
-        sender.isSelected.toggle()
+        mxnButton.isSelected.toggle()
+        cadButton.isSelected.toggle()
+        
         
         if mxnButton.isSelected {
-            cadButton.isSelected = false
             currency = .mxn
             toCurrencyLabel.text = "Currency (MXN)"
         } else {
-            mxnButton.isSelected = true
-            currency = .mxn
-            toCurrencyLabel.text = "Currency (CAD)"
+            return
+        }
         
     }
     
     // MARK: - Helper Methods
-
+    
     func convert(_ dollars: Double) -> Double {
-        var converted: Double
+        var conversion: Double
         
-        if currency == Currency.cad {
-            converted = dollars * 1.33
+        
+        if currency == .cad {
+            conversion = dollars * 1.33
         } else {
-            converted = dollars * 19.70
+            conversion = dollars * 19.79
         }
-        return converted
+     return conversion
     }
-    
-    
-    }
+
+
 }
-//test
-//
