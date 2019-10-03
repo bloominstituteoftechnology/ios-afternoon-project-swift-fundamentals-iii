@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
-        
+        cadButton.isSelected.toggle()
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
