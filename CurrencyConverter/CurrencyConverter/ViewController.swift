@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
         cadButton.isSelected.toggle()
-        mxnButton.isSelected.toggle()
+//        mxnButton.isSelected.toggle()
         
         if cadButton.isSelected {
             currency = .cad
