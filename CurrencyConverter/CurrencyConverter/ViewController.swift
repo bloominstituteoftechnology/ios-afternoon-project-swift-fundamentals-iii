@@ -15,6 +15,12 @@ enum Currency {
 
 var currency: Currency = .cad
 
+var currencyFormatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .currency
+    return formatter
+}()
+
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
@@ -30,11 +36,13 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
+
         guard let currencyTextField = fromCurrencyTextField.text else { return }
 
         guard let currencyNumber = Double(currencyTextField) else {
             print("Dollar amount not valid.")
-            return }
+            return
+        }
 
         var conversion: Double
         
@@ -44,7 +52,11 @@ class ViewController: UIViewController {
             conversion = convert(currencyNumber)
         }
         
-        toCurrencyTextField.text = "\(conversion)"
+        let nsNumber = NSNumber(value: conversion)
+    
+        let currencyValue = currencyFormatter.string(from: nsNumber)
+        
+        toCurrencyTextField.text = "\(currencyValue ?? "Error")"
         
     }
     
@@ -90,6 +102,18 @@ class ViewController: UIViewController {
         }
      return conversion
     }
+    
+
+
 
 
 }
+
+//Customize the output display using a NumberFormatter
+//
+//var currencyFormatter: NumberFormatter = {
+//    let formatter = NumberFormatter()
+//    formatter.numberStyle = .currency
+//    return formatter
+//}()
+//Use the string(from:) method to convert from a number to a String for display
