@@ -14,7 +14,7 @@ enum Currency : String {
     case mxn = "MXN"
 }
 
-// TODO: implement `CurrencyButton : UIButton` type?
+// TODO: implement `CurrencyButton : UIButton` class?
 
 class ViewController: UIViewController {
     //: as of 2019-10-02 12:14 PDT:
@@ -50,28 +50,7 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
-        // do nothing if invalid text
-        guard let fromAmountText = fromCurrencyTextField.text else {
-            print("ERROR: invalid 'from' text")
-            return
-        }
-        // strip currency formatting
-        let fromAmountDoubleText: String = {
-            let text = fromAmountText.replacingOccurrences(of: "$", with: "")
-            return text.replacingOccurrences(of: ",", with: "")
-        }()
-        // do nothing if invalid amount
-        guard let fromAmount = Double(fromAmountDoubleText) else {
-            print("ERROR: invalid 'from' amount")
-            return
-        }
-        
-        // convert usd to current currency
-        let toAmount = convert(fromAmount)
-        
-        // display field text as currency
-        fromCurrencyTextField.text = currencyFormatter.string(from: fromAmount as NSNumber)
-        toCurrencyTextField.text = currencyFormatter.string(from: toAmount as NSNumber)
+        convertInputTextToCurrency()
     }
     
     // both buttons do almost exactly the same thing, so it makes sense to use one function for both of them
@@ -86,12 +65,43 @@ class ViewController: UIViewController {
             }
         }
         //print("current currency: \(currency.rawValue)")
-        convertButtonTapped(sender)
+        convertInputTextToCurrency()
     }
     
     // MARK: - Helper Methods
     
-    func convert(_ dollars: Double) -> Double {
+    func convertInputTextToCurrency() {
+        let fromAmount = convertCurrencyTextToDouble(text: fromCurrencyTextField.text)
+        
+        // convert usd to current currency
+        let toAmount = convertCurrency(fromAmount)
+        
+        // display field text as currency
+        fromCurrencyTextField.text = currencyFormatter.string(from: fromAmount as NSNumber)
+        toCurrencyTextField.text = currencyFormatter.string(from: toAmount as NSNumber)
+    }
+    
+    func convertCurrencyTextToDouble(text: String?) -> Double {
+        // do nothing if invalid text
+        guard var newText = text else {
+            print("ERROR: invalid 'from' text")
+            return 0
+        }
+        
+        // strip currency formatting
+        newText = newText.replacingOccurrences(of: "$", with: "")
+        newText = newText.replacingOccurrences(of: ",", with: "")
+        
+        // do nothing if invalid amount
+        guard let doubleFromString = Double(newText) else {
+            print("ERROR: invalid 'from' amount")
+            return 0
+        }
+        
+        return doubleFromString
+    }
+    
+    func convertCurrency(_ dollars: Double) -> Double {
         guard let conversionRate = conversionRates[currency] else {
             print("ERROR: currency conversion rate is invalid")
             return 0
