@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
+        mxnButton.isSelected.toggle()
         
     }
     
