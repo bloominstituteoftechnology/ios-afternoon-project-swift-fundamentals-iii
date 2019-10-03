@@ -35,14 +35,7 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
-        guard let exchangeString = fromCurrencyTextField.text,
-            let amountToExchange = Double(exchangeString) else { return }
-        
-        let exchangedAmount = convert(amountToExchange)
-        
-        guard let exchangedAmountFormatted = currencyFormatter.string(from: NSNumber(value: exchangedAmount)) else { return }
-        
-        toCurrencyTextField.text = "\(exchangedAmountFormatted)"
+        setTextFields()
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
@@ -54,7 +47,7 @@ class ViewController: UIViewController {
             toCurrencyLabel.text = "Currency (🇨🇦)"
         }
         
-        convertButtonTapped(UIButton())
+        setTextFields()
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
@@ -66,7 +59,7 @@ class ViewController: UIViewController {
             toCurrencyLabel.text = "Currency (🇲🇽)"
         }
         
-        convertButtonTapped(UIButton())
+        setTextFields()
     }
     
     // MARK: - Helper Methods
@@ -85,6 +78,17 @@ class ViewController: UIViewController {
         }
         
         return exchangedAmount
+    }
+    
+    func setTextFields() {
+        guard let exchangeString = fromCurrencyTextField.text,
+            let amountToExchange = Double(exchangeString) else { return }
+        
+        let exchangedAmount = convert(amountToExchange)
+        
+        guard let exchangedAmountFormatted = currencyFormatter.string(from: NSNumber(value: exchangedAmount)) else { return }
+        
+        toCurrencyTextField.text = "\(exchangedAmountFormatted)"
     }
 }
 
