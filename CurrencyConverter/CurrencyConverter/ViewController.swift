@@ -50,8 +50,16 @@ class ViewController: UIViewController {
             }
         toCurrencyLabel.text = "Currency (MXN)"
         }
-    }
     
     // MARK: - Helper Methods
-
-
+func convert(_ dollars: Double) -> Double {
+    let convertedValue: Double
+    
+    if currency == Currency.cad {
+        convertedValue = dollars * 1.33
+    } else {
+        convertedValue = dollars * 19.70
+    }
+    return convertedValue
+    }
+}
