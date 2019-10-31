@@ -8,7 +8,13 @@
 
 import UIKit
 
+enum Currency{
+    case cad
+    case mxn
+}
+
 class ViewController: UIViewController {
+    var currency:Currency = .cad
     
     // MARK: - Outlets/Properties
     
@@ -27,6 +33,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
+        
         
     }
     
