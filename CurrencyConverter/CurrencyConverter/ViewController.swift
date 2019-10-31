@@ -55,10 +55,12 @@ class ViewController: UIViewController {
             currency = .mxn
             cadButton.isSelected = false
             }
+        
         toCurrencyLabel.text = "Currency (MXN)"
         }
     
     // MARK: - Helper Methods
+    
 func convert(_ dollars: Double) -> Double {
     let convertedValue: Double
     
