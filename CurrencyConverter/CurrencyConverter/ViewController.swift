@@ -31,7 +31,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
-        
+        cadButton.isSelected = true
+        mxnButton.isSelected = false
+        if cadButton.isSelected {
+            currency = .cad
+            toCurrencyLabel.text = "Currency (CAD)"
+        }
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
