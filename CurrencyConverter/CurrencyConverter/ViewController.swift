@@ -8,6 +8,19 @@
 
 import UIKit
 
+enum Currency {
+    case cad
+    case mxn
+}
+
+var currency: Currency = .cad
+
+var currencyFormatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .currency
+    return formatter
+}()
+
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
@@ -19,8 +32,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
-
-    @IBOutlet weak var textNotificationField: UITextField!
+    
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
@@ -35,11 +47,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
-        cadButton.isSelected.toggle()
-        if(cadButton.isSelected){
-            currency = .cad
-            toCurrencyLabel.text = "Currency(CAD)"
-        }
         
         cadButton.isSelected.toggle()
         if cadButton.isSelected {
@@ -51,17 +58,23 @@ class ViewController: UIViewController {
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
-        
-    func convert(_ dollars: Double) -> Double {
-        if (currency == .cad) {
-            let cad = dollars * 1.32
-            return cad
-        } else {
-            let mxn = dollars * 19.22
-            return mxn
+        mxnButton.isSelected.toggle()
+        if mxnButton.isSelected {
+            cadButton.isSelected.toggle()
+            currency = .mxn
+            toCurrencyLabel.text = "Currency(MXN)"
         }
     }
     
     // MARK: - Helper Methods
 }
+    func convert (_ dollars: Double) -> Double {
+        if currency == .cad {
+            let cad = dollars * 1.32
+            return cad
+        } else {
+            let mxn = dollars * 19.23
+            return mxn
+        }
+    }
 
