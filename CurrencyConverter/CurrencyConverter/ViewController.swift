@@ -49,5 +49,10 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Helper Methods
+    // $1 to $1.32 CAD
+    // $1 to 19.23 MXN
+    func convert(_ dollars: Double) -> Double {
+        return 0
+    }
 }
 
