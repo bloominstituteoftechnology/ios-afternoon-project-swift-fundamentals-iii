@@ -27,7 +27,12 @@ class ViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func convertButtonTapped(_ sender: UIButton) {
+        guard let dollarString = fromCurrencyTextField.text, let dollars = Double(dollarString) else {
+            print("Unable to convert to number. Please check your input and try again.")
+            return
+        }
         
+        toCurrencyTextField.text = "\(convert(dollars))"
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
