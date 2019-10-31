@@ -30,7 +30,14 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
+        guard let currencyUSString = fromCurrencyTextField.text,
+            let currencyUS = Double(currencyUSString) else {
+            return
+        }
         
+        let convertedValue = convert(currencyUS)
+        
+        toCurrencyTextField.text = "\(convertedValue)"
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
