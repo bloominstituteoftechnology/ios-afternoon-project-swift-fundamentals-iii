@@ -8,20 +8,24 @@
 
 import UIKit
 
+enum Currency {
+    case cad
+    case mxn
+}
+
 class ViewController: UIViewController {
     
-    // MARK: - Outlets/Properties
+    // MARK: - Properties
     
+    
+    // MARK: - Outlets
     @IBOutlet weak var fromCurrencyTextField: UITextField!
     @IBOutlet weak var toCurrencyTextField: UITextField!
-    
     @IBOutlet weak var toCurrencyLabel: UILabel!
-    
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
-
-    // MARK: - Actions
     
+    // MARK: - Actions
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         
     }
