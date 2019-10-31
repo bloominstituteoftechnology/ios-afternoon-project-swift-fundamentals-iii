@@ -17,6 +17,11 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     var currency: Currency = .cad
+    var currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
     
     // MARK: - Outlets
     @IBOutlet weak var fromCurrencyTextField: UITextField!
