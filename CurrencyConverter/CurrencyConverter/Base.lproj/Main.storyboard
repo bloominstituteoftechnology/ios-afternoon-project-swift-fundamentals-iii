@@ -80,7 +80,7 @@
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <state key="normal" title="MXN"/>
                                         <connections>
-                                            <action selector="mxnButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cIs-3K-rZQ"/>
+                                            <action selector="mxnButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vye-s7-BZq"/>
                                         </connections>
                                     </button>
                                 </subviews>
