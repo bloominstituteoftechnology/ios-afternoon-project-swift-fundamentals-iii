@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             return
         }
         
-        toCurrencyTextField.text = "\(convert(dollars))"
+        toCurrencyTextField.text = currencyFormatter.string(from: NSNumber(value: convert(dollars)))
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
