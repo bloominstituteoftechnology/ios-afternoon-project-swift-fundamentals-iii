@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum Currency {
+    case cad
+    case mxn
+}
+
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
@@ -19,21 +24,71 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
+    
+    var currency: Currency = .cad
+    var currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
 
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
-        
+        setTextFields()
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
+        cadButton.isSelected.toggle()
+        mxnButton.isSelected.toggle()
         
+        if cadButton.isSelected {
+            currency = .cad
+            toCurrencyLabel.text = "Currency (🇨🇦)"
+        }
+        
+        setTextFields()
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
+        mxnButton.isSelected.toggle()
+        cadButton.isSelected.toggle()
         
+        if mxnButton.isSelected {
+            currency = .mxn
+            toCurrencyLabel.text = "Currency (🇲🇽)"
+        }
+        
+        setTextFields()
     }
     
     // MARK: - Helper Methods
+    
+    func convert(_ dollars: Double) -> Double {
+        let cadExchangeRate = 1.32
+        let mxnExchangeRate = 19.78
+        let amountToExchange = dollars
+        var exchangedAmount = 0.0
+        
+        switch currency {
+        case .cad:
+            exchangedAmount = amountToExchange * cadExchangeRate
+        case .mxn:
+            exchangedAmount = amountToExchange * mxnExchangeRate
+        }
+        
+        return exchangedAmount
+    }
+    
+    func setTextFields() {
+        guard let exchangeString = fromCurrencyTextField.text,
+            let amountToExchange = Double(exchangeString) else { return }
+        
+        let exchangedAmount = convert(amountToExchange)
+        
+        guard let exchangedAmountFormatted = currencyFormatter.string(from: NSNumber(value: exchangedAmount)) else { return }
+        
+        toCurrencyTextField.text = "\(exchangedAmountFormatted)"
+    }
 }
 
