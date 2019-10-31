@@ -52,5 +52,28 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Helper Methods
+    
+    enum Currency {
+        case cad
+        case mxn
+    }
+    
+    var currency: Currency = .cad
+    
+    func convert(_ dollars: Double) -> Double {
+        if (currency == .cad) {
+            let cad = dollars * 1.32
+            return cad
+        } else {
+            let mxn = dollars * 19.22
+            return mxn
+        }
+    }
+    
+    var currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
 }
 
