@@ -16,7 +16,7 @@ enum Currency {
 class ViewController: UIViewController {
     
     // MARK: - Properties
-    
+    var currency: Currency = .cad
     
     // MARK: - Outlets
     @IBOutlet weak var fromCurrencyTextField: UITextField!
