@@ -52,7 +52,12 @@ class ViewController: UIViewController {
     // $1 to $1.32 CAD
     // $1 to 19.23 MXN
     func convert(_ dollars: Double) -> Double {
-        return 0
+        switch currency {
+        case .cad:
+            return (dollars * 1.32)
+        case .mxn:
+            return (dollars * 19.23)
+        }
     }
 }
 
