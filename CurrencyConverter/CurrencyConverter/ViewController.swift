@@ -7,7 +7,11 @@
 //
 
 import UIKit
-
+enum Currency {
+    case cad
+    case mxn
+}
+var currency = Currency(
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
