@@ -8,9 +8,9 @@
 
 import UIKit
 
-enum Currency{
-    case cad
-    case mxn
+enum Currency: String{
+    case cad = "CAD"
+    case mxn = "MXN"
 }
 
 class ViewController: UIViewController {
@@ -35,7 +35,11 @@ class ViewController: UIViewController {
     @IBAction func cadButtonTapped(_ sender: UIButton) {
         cadButton.isSelected.toggle()
         mxnButton.isSelected = false
-        }
+        if cadButton.isSelected{
+            toCurrencyLabel.text = "Currency(CAD)"
+    
+        }}
+        
             
         
         
@@ -46,6 +50,9 @@ class ViewController: UIViewController {
         mxnButton.isSelected.toggle()
         
         cadButton.isSelected = false
+        if mxnButton.isSelected{
+            toCurrencyLabel.text = "Currency(MXN)"
+        }
         }
         }
         
