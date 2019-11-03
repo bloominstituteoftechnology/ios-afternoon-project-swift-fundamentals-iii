@@ -30,7 +30,22 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
+        guard let userInput = fromCurrencyTextField.text else { return }
         
+        guard let convertedInput = Double(userInput) else {
+            print("This is not a valid input")
+            return
+        }
+        
+        var convertedCurrency: Double
+        
+        if cadButton.isSelected {
+            convertedCurrency = convert(convertedInput)
+            toCurrencyTextField.text = "\(userInput) US dollars in Canadian dollars is \(convertedCurrency)"
+        } else {
+            convertedCurrency = convert(convertedInput)
+            toCurrencyTextField.text = "\(userInput) US dollars in Mexican pesos is \(convertedCurrency)"
+        }
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
@@ -55,5 +70,16 @@ class ViewController: UIViewController {
     
     // MARK: - Helper Methods
     
+    func convert(_ dollars: Double) -> Double {
+        var convertedCurrency: Double
+        
+        if currency == .cad {
+            convertedCurrency = dollars * 1.32
+        } else {
+            convertedCurrency = dollars * 19.11
+        }
+        
+        return convertedCurrency
+    }
 }
 
