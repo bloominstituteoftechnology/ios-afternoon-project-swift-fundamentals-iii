@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum Currency {
+    case cad
+    case mxn
+}
+
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
@@ -19,6 +24,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
+    
+    var currency: Currency = .cad
 
     // MARK: - Actions
     
