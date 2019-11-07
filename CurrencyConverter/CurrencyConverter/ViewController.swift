@@ -52,5 +52,14 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Helper Methods
+    
+    func convert(_ dollars: Double) -> Double {
+        switch currency {
+        case .cad:
+            return dollars * 1.32
+        case .mxn:
+            return dollars * 19.12
+        }
+    }
 }
 
