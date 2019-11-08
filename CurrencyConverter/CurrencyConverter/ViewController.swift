@@ -30,7 +30,20 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
+        guard let userInputCurrency = fromCurrencyTextField.text else { return }
+        guard let convertedInputCurrency = Double(userInputCurrency) else {
+            print("This is not a valid input")
+            return
+        }
+        var convertedCurrency: Double
         
+        if cadButton.isSelected {
+            convertedCurrency = convert(convertedInputCurrency)
+            toCurrencyTextField.text = "$\(convertedCurrency)"
+        } else {
+            convertedCurrency = convert(convertedInputCurrency)
+            toCurrencyTextField.text = "$\(convertedCurrency)"
+        }
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
