@@ -14,6 +14,9 @@ enum Currency {
 }
 
 var currency: Currency = .cad
+let usdToCad =  1.33
+let usdToMxn = 19.70
+
 
 class ViewController: UIViewController {
     
@@ -30,45 +33,40 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
-        guard let button = sender as? UIButton else { return }
-        
-        sender.isSelected.toggle()
-        
+        guard let amountToConvert = fromCurrencyTextField.text ,
+            let dollarAmount = Double(amountToConvert) else {return}
+        let win = convert(dollarAmount)
+            toCurrencyTextField.text = String(win)
         
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
-                // toggle the mxnButton off
         mxnButton.isSelected.toggle()
-        
-        if cadButton.isSelected {
+        if sender.isSelected == true {
             currency = .cad
-//            currency = cadCurrencyRate * 1.32
-//
-//        } else {
-//            return
-     }
-
-        toCurrencyLabel.text = "Currency (CAD)"
-    }
-    
-    @IBAction func mxnButtonTapped(_ sender: UIButton) {
-    
-        sender.isSelected.toggle()
-        cadButton.isSelected.toggle()
-        
-        if mxnButton.isSelected {
-            currency = .mxn
-            
-        toCurrencyTextField.text = "Currency (MXN)"
-    }
-        }
-        
-    // MARK: - Helper Methods
-    func convert(_ dollars: Double) -> Double {
-       
-        
+            toCurrencyLabel.text = "Currency (CAD)"
     }
 }
 
+    @IBAction func mxnButtonTapped(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        cadButton.isSelected.toggle()
+        if sender.isSelected == true {
+            currency = .mxn
+            toCurrencyLabel.text = "Currency (MXN)"
+    }
+}
+        
+    // MARK: - Helper Methods
+    func convert(_ dollars: Double) -> Double {
+
+        switch currency {
+        case .cad:
+           return dollars * usdToCad
+        case .mxn:
+            return dollars * usdToMxn
+        } // exhausted enum list, no default is needed
+    }
+
+}
