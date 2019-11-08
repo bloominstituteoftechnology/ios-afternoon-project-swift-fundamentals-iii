@@ -13,6 +13,8 @@ enum Currency {
     case mxn
 }
 
+var currency: Currency = .cad
+
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
@@ -40,5 +42,17 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Helper Methods
+    
+    func convert(_ dollars: Double) -> Double {
+        var convertedCurrency: Double
+
+        if currency == .cad {
+            convertedCurrency = dollars * 1.32
+        } else {
+            convertedCurrency = dollars * 19.11
+        }
+
+        return convertedCurrency
+    }
 }
 
