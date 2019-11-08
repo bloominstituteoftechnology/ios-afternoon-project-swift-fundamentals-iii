@@ -40,19 +40,17 @@ class ViewController: UIViewController {
     @IBAction func cadButtonTapped(_ sender: UIButton) {
         guard let button = sender as? UIButton else { return }
         button.isSelected.toggle()
-        
-        guard fromCurrencyTextField.text != nil else {return}
-        
+                
         guard let cadCurrencyRate = Double(fromCurrencyTextField.text) else {
             print("invalid number")
             return
         }
         
         if cadButton.isSelected {
-            cadCurrencyRate = dollars * 1.32
+            currency = cadCurrencyRate * 1.32
 
         } else {
-            
+            return
         }
         
         toCurrencyTextField.text = "\(currency) (CAD)"
@@ -60,13 +58,18 @@ class ViewController: UIViewController {
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
         guard let button = sender as? UIButton else { return }
-        guard let <#constant#> = <#expression#> else { return <#return value#> }
+        
+        guard let mxnCurrencyRate = Double(fromCurrencyTextField.text) else {
+            print("Invalid number")
+            return
+        }
+        
         button.isSelected.toggle()
         
         if mxnButton.isSelected {
-            currency =
+            currency = mxnCurrencyRate * 19.14
         } else {
-            
+            return
         }
         toCurrencyTextField.text = "\(currency) (MXN)"
     }
@@ -74,8 +77,6 @@ class ViewController: UIViewController {
     // MARK: - Helper Methods
     func convert(_ dollars: Double) -> Double {
        
-        let conversion: Double = dollars *
-        return conversion
         
     }
 }
