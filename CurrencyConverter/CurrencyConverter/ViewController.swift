@@ -13,7 +13,7 @@ enum Currency {
     case mxn
 }
 
-var currency = Currency.cad
+var currency: Currency = .cad
 
 class ViewController: UIViewController {
     
@@ -32,48 +32,39 @@ class ViewController: UIViewController {
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         guard let button = sender as? UIButton else { return }
         
-        button.isSelected.toggle()
+        sender.isSelected.toggle()
         
         
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
-        guard let button = sender as? UIButton else { return }
-        button.isSelected.toggle()
-                
-        guard let cadCurrencyRate = Double(fromCurrencyTextField.text) else {
-            print("invalid number")
-            return
-        }
+        sender.isSelected.toggle()
+                // toggle the mxnButton off
+        mxnButton.isSelected.toggle()
         
         if cadButton.isSelected {
-            currency = cadCurrencyRate * 1.32
+            currency = .cad
+//            currency = cadCurrencyRate * 1.32
+//
+//        } else {
+//            return
+     }
 
-        } else {
-            return
-        }
-        
-        toCurrencyTextField.text = "\(currency) (CAD)"
+        toCurrencyLabel.text = "Currency (CAD)"
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
-        guard let button = sender as? UIButton else { return }
-        
-        guard let mxnCurrencyRate = Double(fromCurrencyTextField.text) else {
-            print("Invalid number")
-            return
-        }
-        
-        button.isSelected.toggle()
+    
+        sender.isSelected.toggle()
+        cadButton.isSelected.toggle()
         
         if mxnButton.isSelected {
-            currency = mxnCurrencyRate * 19.14
-        } else {
-            return
-        }
-        toCurrencyTextField.text = "\(currency) (MXN)"
+            currency = .mxn
+            
+        toCurrencyTextField.text = "Currency (MXN)"
     }
-    
+        }
+        
     // MARK: - Helper Methods
     func convert(_ dollars: Double) -> Double {
        
