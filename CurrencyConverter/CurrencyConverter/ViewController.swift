@@ -11,9 +11,10 @@ enum Currency {
     case cad
     case mxn
 }
-let currency : Currency = .cad
+
 
 class ViewController: UIViewController {
+    var currency : Currency = .cad
     
     // MARK: - Outlets/Properties
     
@@ -33,10 +34,20 @@ class ViewController: UIViewController {
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
         
+        cadButton.isSelected.toggle()
+        mxnButton.isSelected.toggle()
+        if cadButton.isSelected {
+        currency = .cad
+        toCurrencyLabel.text = "Currency (CAD)"    }
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
-        
+        mxnButton.isSelected.toggle()
+        cadButton.isSelected.toggle()
+        if mxnButton.isSelected {
+        currency = .mxn
+        toCurrencyLabel.text = "Currency (MXN)"
+                }
     }
     
     // MARK: - Helper Methods
