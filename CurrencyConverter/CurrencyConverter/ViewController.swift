@@ -7,6 +7,11 @@
 //
 
 import UIKit
+enum Currency {
+    case cad
+    case mxn
+}
+let currency : Currency = .cad
 
 class ViewController: UIViewController {
     
