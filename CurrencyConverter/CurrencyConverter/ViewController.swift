@@ -26,7 +26,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
-
+    
+    var currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
+    
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
@@ -39,7 +45,7 @@ class ViewController: UIViewController {
             return
         }
         
-        toCurrencyTextField.text = String(convert(currencyInputNumber))
+        toCurrencyTextField.text = String((convert(currencyInputNumber)))
         
         
     }
