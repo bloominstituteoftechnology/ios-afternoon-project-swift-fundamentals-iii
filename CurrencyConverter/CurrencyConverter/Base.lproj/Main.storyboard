@@ -102,6 +102,7 @@
                     </view>
                     <connections>
                         <outlet property="cadButton" destination="4i2-QK-bC3" id="Gfq-KE-sz7"/>
+                        <outlet property="convertButton" destination="kUN-gZ-WUj" id="54H-I0-BGl"/>
                         <outlet property="fromCurrencyTextField" destination="Q97-bt-eeg" id="1pq-E8-bco"/>
                         <outlet property="mxnButton" destination="LwJ-IE-oX9" id="fPI-cC-XHK"/>
                         <outlet property="toCurrencyLabel" destination="Ul6-sE-H5T" id="jpf-rX-myk"/>
