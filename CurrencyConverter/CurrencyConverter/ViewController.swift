@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum Currency {
-    case cad
-    case mxn
-}
-
-var currency = Currency.cad
 
 class ViewController: UIViewController {
     
@@ -28,12 +22,39 @@ class ViewController: UIViewController {
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+}
     // MARK: - Actions
+    
+    enum Currency {
+        case cad
+        case mxn
+    }
+    
+    var currency = Currency.cad
+
     
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
+        guard let converButtonTapped = sender as? UIButton else { return }
+        converButtonTapped.isSelected.toggle()
+        
+        guard let dollars: Double = Double(fromCurrencyTextField.text!),
+            let currencyType: Currency = currency else { return }
+        
+        var currencyFormatter: NumberFormatter = {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            return formatter
+        }()
+        
+        toCurrencyTextField.text = currencyFormatter.string(from: NSNumber(value: convert(_dollars: dollars)))
     }
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
+        
+        guard let mxnButtonTapped = sender as? UIButton else { return }
+        mxnButtonTapped.isSelected.toggle()
         
         guard let fromCurrencyString = fromCurrencyTextField.text else { return }
         
@@ -54,6 +75,9 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func cadButtonTapped(_ sender: UIButton) {
+        
+        guard let cadButtonTapped = sender as? UIButton else { return }
+        cadButtonTapped.isSelected.toggle()
         guard let fromCurrencyString = fromCurrencyTextField.text else { return }
         
         guard let toCurrencyString = toCurrencyTextField.text else { return }
@@ -84,14 +108,16 @@ class ViewController: UIViewController {
         let mxnPeso = Double(19.10)
     
         if cadButton.isSelected == true  {
-        let amountEntered2 = usDollar * cadDollar
+        var amountToConvert = usDollar * cadDollar
+            return amountToConvert
             
         } else {
             mxnButton.isSelected == true
-            var amountEntered2 = usDollar * mxnPeso
+            var amountToConvert = usDollar * mxnPeso
+            return amountToConvert
         }
     }
-    return convertedAmount
+
 
 }
 
