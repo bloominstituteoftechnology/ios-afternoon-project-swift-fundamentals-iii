@@ -31,6 +31,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var pesoCadCurrencyTextField: UITextField!
     
+    @IBOutlet weak var pesoBtn: UIButton!
+    @IBOutlet weak var cdnBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,7 @@ class ViewController: UIViewController {
         }
         let finalConvertd = convert(converted)
         pesoCadCurrencyTextField.text = "\(finalConvertd)"
+        
     }
     
 //    In the cadButtonTapped action: Toggle this button's isSelected state
@@ -57,23 +60,23 @@ class ViewController: UIViewController {
 //    Check this button's state, and if true:
 //    set the currency property to .cad
 //    Display the currency in the toCurrencyLabel (so have it say "Currency (CAD)")
-    
+//    var selected = true
     @IBAction func cadBtnPressed(_ sender: Any) {
-        guard let cadButton = sender as? UIButton else { return }
-        cadButton.isSelected.toggle()
-        if cadButton.isSelected {
+        cdnBtn.isSelected.toggle()
+        if cdnBtn.isSelected {
+        pesoBtn.isSelected = false
         Currency.cad
         currencyPesoLbl.text = "Currency (CAD)"
         }
     }
     
     @IBAction func pesoBtnPressed(_ sender: Any) {
-        guard let mexButton = sender as? UIButton else { return }
-        mexButton.isSelected.toggle()
-        if mexButton.isSelected {
+        pesoBtn.isSelected.toggle()
+        if pesoBtn.isSelected {
         Currency.mxn
+        cdnBtn.isSelected = false
         currencyPesoLbl.text = "Currency (MXN)"
-    }
+        }
 
   }
     
@@ -88,5 +91,11 @@ class ViewController: UIViewController {
         }
         return cConversion
 }
+    
+    var currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
 
 }
