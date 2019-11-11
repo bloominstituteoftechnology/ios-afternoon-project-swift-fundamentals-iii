@@ -99,7 +99,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cdnBtn" destination="60Z-HV-BeY" id="BGn-ej-PZu"/>
                         <outlet property="currencyPesoLbl" destination="Sl0-qL-MVQ" id="Ick-tu-vgm"/>
+                        <outlet property="pesoBtn" destination="knt-Ox-mOn" id="0Nw-cC-edq"/>
                         <outlet property="pesoCadCurrencyTextField" destination="gSd-iu-ffL" id="QHl-rR-B71"/>
                         <outlet property="usdCurrencyTxtField" destination="nx4-WI-cdM" id="6Ki-2u-J74"/>
                     </connections>
