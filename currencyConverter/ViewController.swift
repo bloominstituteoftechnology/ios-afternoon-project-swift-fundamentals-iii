@@ -22,7 +22,7 @@ var mxn: Double = 19.70
 
 class ViewController: UIViewController {
 
-    let currency: Currency = .cad
+    var currency: Currency = .cad
     // IB Outlets
     
     @IBOutlet weak var currencyPesoLbl: UILabel!
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         cdnBtn.isSelected.toggle()
         if cdnBtn.isSelected {
         pesoBtn.isSelected = false
-        Currency.cad
+        currency = .cad
         currencyPesoLbl.text = "Currency (CAD)"
         }
     }
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
     @IBAction func pesoBtnPressed(_ sender: Any) {
         pesoBtn.isSelected.toggle()
         if pesoBtn.isSelected {
-        Currency.mxn
+        currency = .mxn
         cdnBtn.isSelected = false
         currencyPesoLbl.text = "Currency (MXN)"
         }
