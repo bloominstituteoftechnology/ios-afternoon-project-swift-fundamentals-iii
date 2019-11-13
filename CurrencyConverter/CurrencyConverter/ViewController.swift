@@ -82,8 +82,8 @@ class ViewController: UIViewController {
          * to CAD or MXN
          * Perform the conversion with the dollars passed into this method
          * Return the converted value */
-        guard currency == .mxn  else{ return dollars * usdToMxn }
-        return dollars * usdToCad
+        guard currency == .mxn  else{ return dollars * usdToCad }
+        return dollars * usdToMxn
     }
     var currencyFormatter: NumberFormatter = {
            let formatter = NumberFormatter()
