@@ -17,3 +17,4 @@
 * Switching currencyType based on which button is pressed (MXN or CAD)
 * Converting currency based on currencyType
 * Created Method to display an error message if an empty string or not a number is entered (enterANumber())
+* Created Method to convert currency and display on textField. Method is triggered on pressing either currency type button if fromCurrencyTextField isn't blank. Method is also triggered on button tap
