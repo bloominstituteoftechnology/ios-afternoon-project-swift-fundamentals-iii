@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var currencyType: currency = .CAD
+    var currencyType: Currency = .cad
     
     // MARK: - Outlets/Properties
     
@@ -31,15 +31,14 @@ class ViewController: UIViewController {
         }
         fromCurrencyTextField.textColor = .darkText //in case this was set to .red by enterANumber()
         switch self.currencyType {
-        case .CAD:
+        case .cad:
             let convertedCurrency = text.toCAD().printAsDollar()
             if convertedCurrency == "$0.00" || convertedCurrency == "error" {
                 enterANumber()
             } else {
                 self.toCurrencyTextField.text = convertedCurrency
             }
-        case .MXN:
-            print()
+        case .mxn:
             let convertedCurrency = text.toMXN().printAsDollar()
             if convertedCurrency == "$0.00" || convertedCurrency == "error" {
                 enterANumber()
@@ -50,13 +49,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
-        self.currencyType = .CAD
+        self.currencyType = .cad
         sender.isSelected = true
         mxnButton.isSelected = false
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
-        self.currencyType = .MXN
+        self.currencyType = .mxn
         sender.isSelected = true
         cadButton.isSelected = false
     }
@@ -65,6 +64,7 @@ class ViewController: UIViewController {
     // Currency Helper Methods are stored in Model\CurrencyConverter.swift as extensions - enum stored in Model\Globals.swift
     
     // MARK: VC Helper Methods
+    //error message when non-number is entered in UITextField
     func enterANumber() {
         fromCurrencyTextField.textColor = .red
         fromCurrencyTextField.text = "Please Enter a Number"

@@ -12,6 +12,7 @@
 
 # ViewController.swift
 * Changed toTextField to not be editable in storyboard
+* Changed toTextField Keyboard Type to Decimal Pad in storyboard
 * Created currencyType var in ViewController to hold enum value for current currency type (initial type set to CAD since the initial view is converting to CAD)
 * Switching currencyType based on which button is pressed (MXN or CAD)
 * Converting currency based on currencyType

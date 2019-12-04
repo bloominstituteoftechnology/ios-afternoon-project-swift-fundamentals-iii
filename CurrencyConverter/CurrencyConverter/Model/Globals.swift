@@ -6,7 +6,7 @@
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
-enum currency: String {
-    case MXN = "Mexican Pesos"
-    case CAD = "Canadian Dollars"
+enum Currency: String {
+    case mxn = "Mexican Pesos"
+    case cad = "Canadian Dollars"
 }
