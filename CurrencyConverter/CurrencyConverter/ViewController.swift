@@ -26,11 +26,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
-
+    
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
+        guard let userInput = fromCurrencyTextField.text,
+            let userInputDouble = Double(userInput) else { return }
         
+        let convertedCurrency = convert(userInputDouble)
+        
+        toCurrencyTextField.text = String(convertedCurrency)
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
