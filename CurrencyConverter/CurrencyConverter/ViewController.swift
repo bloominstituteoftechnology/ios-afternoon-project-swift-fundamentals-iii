@@ -39,15 +39,31 @@ class ViewController: UIViewController {
         
         if cadButton.isSelected {
             currency = .cad
-            toCurrencyLabel.text = "Currency(CAD)"
+            toCurrencyLabel.text = "Currency (CAD)"
         }
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
-      
+        mxnButton.isSelected.toggle()
+        cadButton.isSelected.toggle()
+        
+        if mxnButton.isSelected {
+            currency = .mxn
+            toCurrencyLabel.text = "Currency (MXN)"
+        }
     }
     
     // MARK: - Helper Methods
-    
+    func convert(_ dollars: Double) -> Double {
+        var convertedDollars = Double()
+        
+        if currency == .cad {
+            convertedDollars = dollars * 1.32
+        } else {
+            convertedDollars = dollars * 19.36
+        }
+        
+        return convertedDollars
+    }
 }
 
