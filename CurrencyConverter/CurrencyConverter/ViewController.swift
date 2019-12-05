@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
+    
+    let money: Double
 
     // MARK: - Actions
     
@@ -35,5 +37,13 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Helper Methods
+    
+    func calculateCAD(money: Double) -> Double {
+        
+    }
+    
+    func calculateMXN(money: Double) -> Double {
+        
+    }
 }
 
