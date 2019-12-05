@@ -17,12 +17,12 @@ extension String {
     }
     
     func toCAD() -> Double {
-        let CAD = toDbl() * 1.33
+        let CAD = toDbl() * 1.32
         return CAD
     }
     
     func toMXN() -> Double {
-        let MXN = toDbl() * 19.5
+        let MXN = toDbl() * 19.36
         return MXN
     }
 }

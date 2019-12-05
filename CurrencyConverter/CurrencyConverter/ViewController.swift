@@ -70,7 +70,7 @@ class ViewController: UIViewController {
     }
     //convert Currency and display in text field
     func convertAndDisplay(text: String) {
-        fromCurrencyTextField.textColor = .darkText //in case this was set to .red by enterANumber()
+        fromCurrencyTextField.textColor = .darkText //in case this was set to .red by enterANumber().
         switch self.currencyType {
         case .cad:
             let convertedCurrency = text.toCAD().printAsDollar()
