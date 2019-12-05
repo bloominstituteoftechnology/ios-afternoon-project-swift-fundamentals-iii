@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         self.currencyType = .cad
         sender.isSelected = true
         mxnButton.isSelected = false
+        toCurrencyLabel.text = Currency.cad.rawValue
         guard let text = fromCurrencyTextField.text else {
             return
         }
@@ -48,6 +49,7 @@ class ViewController: UIViewController {
         self.currencyType = .mxn
         sender.isSelected = true
         cadButton.isSelected = false
+        toCurrencyLabel.text = Currency.mxn.rawValue
         guard let text = fromCurrencyTextField.text else {
             return
         }

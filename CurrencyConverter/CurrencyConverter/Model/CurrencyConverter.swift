@@ -5,9 +5,10 @@
 //  Created by Kenny on 12/4/19.
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
+import Foundation
 
 extension String {
-    func toDbl() -> Double{
+    private func toDbl() -> Double {
         guard let toDbl = Double(self) else {
             print("\(self) is not convertible to Double")
             return 0.0
@@ -24,11 +25,7 @@ extension String {
         let MXN = toDbl() * 19.5
         return MXN
     }
-    
-    
 }
-
-import Foundation
 
 extension Double {
     func printAsDollar() -> String {
@@ -39,5 +36,3 @@ extension Double {
         return currency
     }
 }
-
-

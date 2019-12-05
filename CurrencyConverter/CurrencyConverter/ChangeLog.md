@@ -9,6 +9,7 @@
                
 ## Created Globals.swift
 * Created enum to store currency type (currency)
+* Created raw values to represent currency in plain English for labels in ViewController 
 
 # ViewController.swift
 * Changed toTextField to not be editable in storyboard
@@ -18,3 +19,6 @@
 * Converting currency based on currencyType
 * Created Method to display an error message if an empty string or not a number is entered (enterANumber())
 * Created Method to convert currency and display on textField. Method is triggered on pressing either currency type button if fromCurrencyTextField isn't blank. Method is also triggered on button tap
+
+## Notes
+* Changed toDbl() method in String extension to be private since it doesn't need to be accessible anywhere else for the purposes of this app

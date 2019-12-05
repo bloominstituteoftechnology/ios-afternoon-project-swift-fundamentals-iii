@@ -7,6 +7,6 @@
 //
 
 enum Currency: String {
-    case mxn = "Mexican Pesos"
-    case cad = "Canadian Dollars"
+    case mxn = "Currency (MXN)"
+    case cad = "Currency (CAD)"
 }
