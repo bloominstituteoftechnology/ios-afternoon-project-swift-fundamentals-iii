@@ -23,17 +23,54 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
+        guard let convertString = fromCurrencyTextField.text else { return }
         
-    }
+        guard let convertDouble = Double(convertString) else {
+        return }
+        
+        toCurrencyTextField.text = String(convert(dollars: convertDouble))
+}
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
-        
+        cadButton.isSelected.toggle()
+        mxnButton.isSelected.toggle()
+        if cadButton.isSelected {
+            currency = .cad
+            toCurrencyLabel.text = "Currency(CAD)"
+        }
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
-        
+        mxnButton.isSelected.toggle()
+        cadButton.isSelected.toggle()
+        if mxnButton.isSelected {
+            currency = .mxn
+            toCurrencyLabel.text = "Currency(MXN)"
+        }
     }
     
     // MARK: - Helper Methods
+    
+    enum Currency {
+        case cad
+        case mxn
+    }
+    
+    var currency : Currency = .cad
+    
+    func convert(dollars: Double) -> Double {
+        let canadianDollars = 0.76 * dollars
+        let mxnDollars = 0.05 * dollars
+        if currency  == .cad {
+           return canadianDollars
+        }else{
+            return mxnDollars
+        }
+    
+    
+
+    
 }
 
+
+}
