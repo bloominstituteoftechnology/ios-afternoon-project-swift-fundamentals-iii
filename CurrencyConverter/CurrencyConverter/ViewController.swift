@@ -31,6 +31,21 @@ class ViewController: UIViewController {
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         
+        guard let fromCurrencyString = fromCurrencyTextField.text else { return }
+        
+        guard let usdCurrency = Double(fromCurrencyString) else {
+            print("Invalid Number, try again.")
+            return
+        }
+        
+        var conversion: Double
+        
+        if cadButton.isSelected {
+            conversion = convertCad(usdCurrency)
+        } else {
+            conversion = convertMxn(usdCurrency)
+        }
+        toCurrencyTextField.text = "\(conversion)"
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
@@ -39,7 +54,7 @@ class ViewController: UIViewController {
           mxnButton.isSelected.toggle()
           
           if cadButton.isSelected == true {
-          
+            toCurrencyLabel.text = "Currency (CAD)"
               currency = .cad
               print(currency)
           }
@@ -47,21 +62,30 @@ class ViewController: UIViewController {
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
         
-        mxnButton.isSelected.toggle()
+            mxnButton.isSelected.toggle()
             cadButton.isSelected.toggle()
             
             if mxnButton.isSelected == true {
+                toCurrencyLabel.text = "Currency (MXN)"
                 currency = .mxn
                 print(currency)
             }
     }
-}
+
     
     // MARK: - Helper Methods
 
-func convert(_ dollars: Double) -> Double {
-    
-    let convertion = dollars * Currency
-    return convertion
+    func convertCad(_ dollars: Double) -> Double {
+        
+        let convertion = dollars * 1.32
+        return convertion
+    }
+
+
+    func convertMxn(_ dollars: Double) -> Double {
+        
+        let convertion = dollars * 19.37
+        return convertion
+    }
 }
 
