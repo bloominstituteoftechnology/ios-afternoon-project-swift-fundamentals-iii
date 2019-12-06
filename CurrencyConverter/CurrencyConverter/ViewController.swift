@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  CurrencyConverter
-//
-//  Created by Ben Gohlke on 8/7/19.
-//  Copyright © 2019 Lambda School. All rights reserved.
-//
-
 import UIKit
 
 enum Currency {
@@ -31,6 +23,17 @@ class ViewController: UIViewController {
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         
+        guard let input = fromCurrencyTextField.text else { return }
+        if let unwrappedInput = Double(input) {
+            let currencyFormatter: NumberFormatter = {
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .currency
+                return formatter
+            }()
+            if let unwrappedFormattedCurrency = currencyFormatter.string(from: NSNumber(value: convert(dollars: unwrappedInput))) {
+                toCurrencyTextField.text = unwrappedFormattedCurrency
+            }
+        }
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
@@ -50,7 +53,7 @@ class ViewController: UIViewController {
     // MARK: - Helper Methods
     
     func convert(dollars: Double) -> Double {
-        if self.currency == .mxn {
+        if self.currency == .cad {
             return dollars * 1.33
         } else {
             return dollars * 19.70
