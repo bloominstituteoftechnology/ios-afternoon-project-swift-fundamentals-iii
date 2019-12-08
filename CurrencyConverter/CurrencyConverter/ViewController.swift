@@ -8,7 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+enum Currency: Double
+{
+    case cad = 1.33
+    case mxn = 19.29
+}
+
+class ViewController: UIViewController
+{
+    
+    
     
     // MARK: - Outlets/Properties
     
@@ -22,18 +31,25 @@ class ViewController: UIViewController {
 
     // MARK: - Actions
     
-    @IBAction func convertButtonTapped(_ sender: UIButton) {
+    @IBAction func convertButtonTapped(_ sender: UIButton)
+    {
         
     }
     
-    @IBAction func cadButtonTapped(_ sender: UIButton) {
+    @IBAction func cadButtonTapped(_ sender: UIButton)
+    {
         
     }
     
-    @IBAction func mxnButtonTapped(_ sender: UIButton) {
+    @IBAction func mxnButtonTapped(_ sender: UIButton)
+    {
+        
+        
         
     }
     
     // MARK: - Helper Methods
+    
+    
 }
 

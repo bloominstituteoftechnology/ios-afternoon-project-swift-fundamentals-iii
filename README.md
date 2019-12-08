@@ -17,7 +17,7 @@ Currency Converter App
 
 ### In `ViewController.swift`:
 
-1. Create a currency type enum above the class and below the `import` statements.
+1. ***Create a currency type enum above the class and below the `import` statements.
 
 	```swift
 	enum Currency {
@@ -26,14 +26,14 @@ Currency Converter App
 	}
 	```
 
-2. Create a property named `currency` of type `Currency`. This will store the current currency type we'll be converting to. Set an initial value of `.cad`.
-3. In the `cadButtonTapped` action:
+2. ***Create a property named `currency` of type `Currency`. This will store the current currency type we'll be converting to. Set an initial value of `.cad`.
+3. ***In the `cadButtonTapped` action:
     * Toggle this button's `isSelected` state
     * Toggle the mxn button's `isSelected` state
     * Check this button's state, and if `true`:
         * set the `currency` property to `.cad`
         * Display the currency in the `toCurrencyLabel` (so have it say "Currency (CAD)")
-4. In the `mxnButtonTapped` action:
+4. ***In the `mxnButtonTapped` action:
     * Toggle this button's `isSelected` state
     * Toggle the cad button's `isSelected` state
     * Check this button's state, and if `true`:
