@@ -33,12 +33,22 @@ class ViewController: UIViewController
     
     @IBAction func convertButtonTapped(_ sender: UIButton)
     {
+        guard let usdcurrencyString = fromCurrencyTextField.text else {return}
+        guard let currentCurrency = Double(usdcurrencyString) else {return}
         
+        if cadButton.isSelected
+        {
+            convert(currentCurrency)
+        }
+        else
+        {
+            convert(currentCurrency)
+        }
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton)
     {
-        cadButton.isSelected.toggle()
+        cadButton.isSelected = !cadButton.isSelected
         if cadButton.isSelected == true
         {
             mxnButton.isSelected = false
@@ -49,7 +59,7 @@ class ViewController: UIViewController
     
     @IBAction func mxnButtonTapped(_ sender: UIButton)
     {
-        mxnButton.isSelected.toggle()
+        mxnButton.isSelected = !mxnButton.isSelected
         if mxnButton.isSelected == true
         {
             cadButton.isSelected = false
@@ -62,7 +72,17 @@ class ViewController: UIViewController
     }
     
     // MARK: - Helper Methods
-    
-    
+    func convert(_ dollars: Double) -> Double
+    {
+        switch currency
+        {
+        case .cad:
+            return dollars * Currency.cad.rawValue
+        case .mxn:
+            return dollars * Currency.mxn.rawValue
+        default:
+            return 0
+        }
+    }
 }
 

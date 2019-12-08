@@ -39,12 +39,12 @@ Currency Converter App
     * Check this button's state, and if `true`:
        * set the `currency` property to `.mxn`
        * Display the currency in the `toCurrencyLabel` (so have it say "Currency (MXN)")
-5. Create a helper method to calculate the currency based on the Currency using the method signature:
+5. ***Create a helper method to calculate the currency based on the Currency using the method signature:
 	```swift
 	func convert(_ dollars: Double) -> Double {
 	}
 	```
-6. In the above method:
+6. ***In the above method:
     * Check the value of `currency` to see whether you should convert to CAD or MXN
     * Perform the conversion with the dollars passed into this method
     * Return the converted value
