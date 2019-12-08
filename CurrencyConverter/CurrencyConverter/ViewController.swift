@@ -17,7 +17,7 @@ enum Currency: Double
 class ViewController: UIViewController
 {
     
-    
+    var currency: Currency? = .cad
     
     // MARK: - Outlets/Properties
     
