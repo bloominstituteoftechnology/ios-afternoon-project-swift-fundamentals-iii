@@ -11,6 +11,7 @@ import UIKit
 enum Currency {
     case cad
     case mxn
+    case gbp
 }
 
 class ViewController: UIViewController {
@@ -26,12 +27,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
+    @IBOutlet weak var gbpButton: UIButton!
     
     var currencyFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         return formatter
-    }()
+    } ()
     
     // MARK: - Actions
     
@@ -46,8 +48,6 @@ class ViewController: UIViewController {
         }
         
         toCurrencyTextField.text = String((convert(currencyInputNumber)))
-        
-        
     }
     
     @IBAction func cadButtonTapped(_ sender: Any) {
@@ -60,7 +60,8 @@ class ViewController: UIViewController {
             currency = .cad
             toCurrencyLabel.text = "Currency(CAD)"
             toCurrencyTextField.text = ""
-            mxnButton.isSelected.toggle()
+            mxnButton.isSelected = false
+            gbpButton.isSelected = false
         } else {
             return
         }
@@ -76,7 +77,25 @@ class ViewController: UIViewController {
             currency = .mxn
             toCurrencyLabel.text = "Currency(MXN)"
             toCurrencyTextField.text = ""
-            cadButton.isSelected.toggle()
+            cadButton.isSelected = false
+            gbpButton.isSelected = false
+        } else {
+            return
+        }
+    }
+    
+    @IBAction func gbpButtonTapped(_ sender: Any) {
+        guard let button = sender as? UIButton else {
+            return
+        }
+        
+        button.isSelected.toggle()
+        if button.isSelected {
+            currency = .gbp
+            toCurrencyLabel.text = "Currency(GBP)"
+            toCurrencyTextField.text = ""
+            cadButton.isSelected = false
+            mxnButton.isSelected = false
         } else {
             return
         }
@@ -89,10 +108,9 @@ class ViewController: UIViewController {
             convertedValue = dollar * 1.31
         } else if currency == .mxn {
             convertedValue = dollar * 19.5
+        } else if currency == .gbp {
+            convertedValue = dollar * 0.76
         }
         return convertedValue
     }
-    
 }
-
-//I'm doing tonight's project. I'm on numbers 3 and 4. I'm trying to toggle the one button off when the other is selected, but I am not sure how to access the
