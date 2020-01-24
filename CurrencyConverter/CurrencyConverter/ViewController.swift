@@ -2,9 +2,9 @@
 //  ViewController.swift
 //  CurrencyConverter
 //
-//  Created by Ben Gohlke on 8/7/19.
+//  Created by Jarren Campos on 01/24/20
 //  Copyright © 2019 Lambda School. All rights reserved.
-//
+//  edited
 
 import UIKit
 
