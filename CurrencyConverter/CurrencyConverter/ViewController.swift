@@ -60,7 +60,13 @@ class ViewController: UIViewController {
     
     // MARK: - Helper Methods
     func convert(_ dollars: Double) -> Double {
-        
+        var out = dollars
+        if currency == .cad {
+            out *= 1.31
+        } else {
+            out *= 18.77
+        }
+        return out
     }
 }
 
