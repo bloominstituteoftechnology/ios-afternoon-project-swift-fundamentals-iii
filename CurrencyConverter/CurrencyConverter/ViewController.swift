@@ -25,36 +25,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var fromCurrencyTextField: UITextField!
     @IBOutlet weak var toCurrencyTextField: UITextField!
-    
     @IBOutlet weak var toCurrencyLabel: UILabel!
     
-    @IBOutlet weak var cadButton: UIButton!
-    @IBOutlet weak var mxnButton: UIButton!
 
     // MARK: - Actions
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         guard let userInput = fromCurrencyTextField.text,
             let dollarAmount = Double(userInput) else {return}
-            toCurrencyTextField.text = String(convert(dollars: dollarAmount))
-    }
-    
-    @IBAction func cadButtonTapped(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        mxnButton.isSelected.toggle()
-        if sender.isSelected {
-            currency = .cad
-            toCurrencyLabel.text = "Currency(CAD)"
-        }
-    }
-    
-    @IBAction func mxnButtonTapped(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        cadButton.isSelected.toggle()
-        if sender.isSelected {
-            currency = .mxn
-            toCurrencyLabel.text = "Currency(MXN)"
-        }
+            let result = convert(dollars: dollarAmount)
+        toCurrencyTextField.text = currencyFormatter.string(for: result)
     }
     
     func convert(dollars: Double) -> Double {
@@ -65,6 +45,28 @@ class ViewController: UIViewController {
             return dollars * usdMXN
         }
     }
+    
+    
+    @IBAction func currencySegmentedController(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            toCurrencyLabel.text = "Currency(CAD)"
+            currency = .cad
+        case 1:
+            toCurrencyLabel.text = "Currency(MXN)"
+            currency = .mxn
+        default:
+            currency = .cad
+        }
+    }
+    
+    var currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
+    
+    
     // MARK: - Helper Methods
 }
 
