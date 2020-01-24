@@ -73,6 +73,7 @@ class ViewController: UIViewController {
         cadButton.isSelected.toggle()
         mxnButton.isSelected.toggle()
     }
+    
     func convert(_ dollars: Double) -> Double {
         switch currency {
         case .cad:
@@ -85,13 +86,11 @@ class ViewController: UIViewController {
     }
     
     func convertDoubleToCurrency(_ amount: Double) -> String {
-        
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
         numberFormatter.locale = Locale(identifier: location)
         
         return numberFormatter.string(from: NSNumber(value: amount))!
-        
     }
 }
 
