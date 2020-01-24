@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         toCurrencyTextField.isUserInteractionEnabled = false
         self.view.backgroundColor = UIColor.orange
     }
@@ -88,35 +88,17 @@ class ViewController: UIViewController {
             let currencyAmt = Double(currencyText)
             else { return }
         
-        var currencyFormatter: NumberFormatter = {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .currency
-            return formatter
-        }()
         
-        var formatter = NumberFormatter()
-          formatter.numberStyle = .currency
-          switch currencyType {
-          case .cad:
-              currencyFormatter.currencyCode = "CAD"
-          case .mxn:
-              currencyFormatter.currencyCode = "MXN"
-          }
-        //  if let _ = formatter.string(from: NSNumber(value: currencyAmt)){
-              toCurrencyTextField.text = String(convert(currencyAmt))
-          //}
-        
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = .currency
-//        switch currencyType {
-//        case .cad:
-//            currencyFormatter.currencyCode = "CAD"
-//        case .mxn:
-//            currencyFormatter.currencyCode = "MXN"
-//        }
-//      //  if let _ = formatter.string(from: NSNumber(value: currencyAmt)){
-//            toCurrencyTextField.text = String(convert(currencyAmt))
-//        //}
-//    }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        switch currencyType {
+        case .cad:
+            formatter.currencyCode = "CAD"
+        case .mxn:
+            formatter.currencyCode = "MXN"
+        }
+        let convertedString = formatter.string(from: NSNumber(value: currencyAmt))
+       
+        toCurrencyTextField.text = convertedString
+    }
 }
-
