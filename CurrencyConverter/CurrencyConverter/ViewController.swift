@@ -13,9 +13,7 @@ import UIKit
 //   I added a couple other features: the screen color change
 // and made it so either CAD or Peso buttons enacted the calculating
 //
-//   I am not sure if it is a bug, but the converted value does not conform
-// to the numberStyle.currency designation from seemingly random numerical
-// entries sending the result out 14 decimal places for me.
+//
 //
 
 class ViewController: UIViewController {
@@ -26,6 +24,13 @@ class ViewController: UIViewController {
     }
     
     var currencyType: Currency = .cad
+    
+    var currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        return formatter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,18 +92,23 @@ class ViewController: UIViewController {
         guard let currencyText = fromCurrencyTextField.text,
             let currencyAmt = Double(currencyText)
             else { return }
-        
-        
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        switch currencyType {
-        case .cad:
-            formatter.currencyCode = "CAD"
-        case .mxn:
-            formatter.currencyCode = "MXN"
-        }
-        let convertedString = formatter.string(from: NSNumber(value: currencyAmt))
        
-        toCurrencyTextField.text = convertedString
+        toCurrencyTextField.text = format(currencyAmt)
+    }
+
+    func format(_ amount: Double) -> String {
+        let currencyFormatter: NumberFormatter = {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+    
+            switch currencyType {
+            case .cad:
+                formatter.currencyCode = "CAD"
+            case .mxn:
+                formatter.currencyCode = "MXN"
+            }
+            return formatter
+        }()
+        return currencyFormatter.string(from: NSNumber(value: convert(amount))) ?? ""
     }
 }
