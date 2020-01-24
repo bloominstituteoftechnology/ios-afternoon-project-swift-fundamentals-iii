@@ -59,5 +59,8 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Helper Methods
+    func convert(_ dollars: Double) -> Double {
+        
+    }
 }
 
