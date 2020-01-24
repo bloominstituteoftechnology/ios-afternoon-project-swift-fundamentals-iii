@@ -59,6 +59,7 @@ class ViewController: UIViewController {
         if button.isSelected {
             currency = .cad
             toCurrencyLabel.text = "Currency(CAD)"
+            toCurrencyTextField.text = ""
             mxnButton.isSelected.toggle()
         } else {
             return
@@ -74,6 +75,7 @@ class ViewController: UIViewController {
         if button.isSelected {
             currency = .mxn
             toCurrencyLabel.text = "Currency(MXN)"
+            toCurrencyTextField.text = ""
             cadButton.isSelected.toggle()
         } else {
             return
