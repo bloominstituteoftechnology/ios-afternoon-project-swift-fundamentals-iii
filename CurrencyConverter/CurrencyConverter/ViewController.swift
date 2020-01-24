@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum Currency {
+    case cad
+    case mxn
+}
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
