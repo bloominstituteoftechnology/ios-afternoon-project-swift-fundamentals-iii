@@ -47,12 +47,7 @@ class ViewController: UIViewController {
         toggleButtons()
         
         //check to see if this button is selected and set to the currency to canadian
-        if cadButton.isSelected {
-            currency = .cad
-        }
-        
-        //change the text label
-        toCurrencyLabel.text = "Currency (CAD)"
+        setCurrency()
     }
     
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
@@ -60,18 +55,24 @@ class ViewController: UIViewController {
         toggleButtons()
         
         //check to see if the mxn button is selected and set the currency to mexican
-        if mxnButton.isSelected {
-            currency = .mxn
-        }
-        
-        //change the text label
-        toCurrencyLabel.text = "Currency (MXN)"
+        setCurrency()
     }
     
     // MARK: - Helper Methods
     func toggleButtons() {
         cadButton.isSelected.toggle()
         mxnButton.isSelected.toggle()
+    }
+    
+    func setCurrency() {
+        if mxnButton.isSelected {
+            currency = .mxn
+            toCurrencyLabel.text = "Currency (MXN)"
+        }
+        if cadButton.isSelected {
+            currency = .cad
+            toCurrencyLabel.text = "Currency (CAD)"
+        }
     }
     
     func convert(_ dollars: Double) -> Double {
