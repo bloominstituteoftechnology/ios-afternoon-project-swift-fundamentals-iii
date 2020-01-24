@@ -38,7 +38,14 @@ class ViewController: UIViewController {
             return
         }
         let output: Double = round(100 * convert(amount)) / 100
-        toCurrencyTextField.text = "\(output)"
+        
+        let currencyFormatter: NumberFormatter = {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            return formatter
+        }()
+        
+        toCurrencyTextField.text = "\(currencyFormatter.string(from: NSNumber(value: output))!)"
     }
     
     // step 3
