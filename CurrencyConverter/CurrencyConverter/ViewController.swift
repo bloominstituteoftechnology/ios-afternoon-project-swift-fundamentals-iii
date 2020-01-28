@@ -32,7 +32,9 @@ class ViewController: UIViewController {
     
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         guard let userInput = fromCurrencyTextField.text,
-            let dollarAmount = Double(userInput) else {return}
+            let dollarAmount = Double(userInput) else {
+                toCurrencyTextField.text = "$0.00"
+                return}
             let result = convert(dollars: dollarAmount)
         toCurrencyTextField.text = currencyFormatter.string(for: result)
     }
