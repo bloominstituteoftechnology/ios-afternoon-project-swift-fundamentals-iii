@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum Currency {
+    case CAD
+    case MXN
+}
+
+var currency: Currency = .CAD
+
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
@@ -16,6 +23,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var toCurrencyTextField: UITextField!
     
     @IBOutlet weak var toCurrencyLabel: UILabel!
+    
+    
     
     @IBOutlet weak var cadButton: UIButton!
     @IBOutlet weak var mxnButton: UIButton!
@@ -27,11 +36,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
-        
+        let button = sender
+        button.isSelected.toggle()
+        if button.isSelected == true {
+            currency = .CAD
+        }
     }
     
+    
     @IBAction func mxnButtonTapped(_ sender: UIButton) {
-        
+        let button = sender
+        button.isSelected.toggle()
+        if button.isSelected == true {
+            currency = .MXN
+        }
     }
     
     // MARK: - Helper Methods
