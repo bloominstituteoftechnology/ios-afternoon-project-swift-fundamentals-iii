@@ -15,12 +15,12 @@ class ConversionViewController: UIViewController {
     var inputCurrencyCode = "USD" {
         didSet {
             inputCurrencyButton.setTitle(inputCurrencyCode, for: .normal)
+            inputCurrencySymbolLabel.text = NumberFormatter.shortestSymbolForCurrencyCode(inputCurrencyCode)
         }
     }
     var outputCurrencyCode = "EUR" {
         didSet {
             outputCurrencyButton.setTitle(outputCurrencyCode, for: .normal)
-            print(Locale.availableIdentifiers)
             outputCurrencyFormatter.currencySymbol = NumberFormatter.shortestSymbolForCurrencyCode(outputCurrencyCode)
         }
     }
@@ -53,14 +53,28 @@ class ConversionViewController: UIViewController {
     }()
     
     let inputCurrencyButton = UIButton(title: "USD", titleColor: K.tanColor, font: K.mainFont, target: self, action: #selector(currencyButtonPressed(_:)))
-    let inputValueTextField: UITextField = {
-        let topValueTextField = UITextField(placeholder: "$0.00", font: K.mainFont, color: K.tanColor, keyboardType: .numberPad, inputAccessoryView: nil)
-        topValueTextField.textAlignment = .center
-        return topValueTextField
+    lazy var inputValueTextField: UITextField = {
+        let textField = UITextField(placeholder: "", font: K.mainFont, color: K.tanColor, keyboardType: .numberPad, inputAccessoryView: nil)
+        textField.textAlignment = .center
+        textField.leftView = inputCurrencySymbolLabel
+        textField.text = "1.00"
+        textField.leftViewMode = .unlessEditing
+        textField.clearsOnBeginEditing = true
+        return textField
+    }()
+    let inputCurrencySymbolLabel: UILabel = {
+        let symbol = UILabel()
+        symbol.text = "$"
+        symbol.font = K.mainFont
+        symbol.textColor = K.tanColor
+        return symbol
     }()
     let outputCurrencyButton = UIButton(title: "EUR", titleColor: K.greenColor, font: K.mainFont, target: self, action: #selector(currencyButtonPressed(_:)))
-    let outputValueTextField = UITextField(placeholder: "$0.00", font: K.mainFont, color: K.greenColor, keyboardType: .numberPad, inputAccessoryView: nil)
-    
+    let outputValueTextField: UITextField = {
+        let textField = UITextField(placeholder: "", font: K.mainFont, color: K.greenColor, keyboardType: .numberPad, inputAccessoryView: nil)
+        textField.text = "€0.92"
+        return textField
+    }()
 //MARK: - Actions
     
     @objc func swapButtonPressed() {
@@ -139,6 +153,7 @@ extension ConversionViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         calculateConversion()
         textField.endEditing(true)
+        
         return true
     }
 }
