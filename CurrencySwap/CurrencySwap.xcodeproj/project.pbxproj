@@ -71,12 +71,11 @@
 			isa = PBXGroup;
 			children = (
 				047CF7E123F3B6830010741F /* AppDelegate.swift */,
-				047CF82823F51BF60010741F /* Fonts */,
 				047CF7E323F3B6830010741F /* SceneDelegate.swift */,
-				047CF7E523F3B6830010741F /* ConversionViewController.swift */,
-				047CF82623F507D50010741F /* CurrencyTableViewController.swift */,
+				047CF82823F51BF60010741F /* Fonts */,
+				04F6A6DB23F610C000EEF2E7 /* Model */,
+				04F6A6DA23F610A000EEF2E7 /* Controller */,
 				047CF7FD23F4A2650010741F /* Extensions */,
-				047CF7F923F456D50010741F /* ConversionCalculator.swift */,
 				047CF7F723F44F6D0010741F /* Constants.swift */,
 				047CF7EA23F3B6850010741F /* Assets.xcassets */,
 				047CF7EC23F3B6850010741F /* LaunchScreen.storyboard */,
@@ -102,6 +101,23 @@
 				047CF82223F4BA5D0010741F /* ABeeZee-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		04F6A6DA23F610A000EEF2E7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				047CF7E523F3B6830010741F /* ConversionViewController.swift */,
+				047CF82623F507D50010741F /* CurrencyTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04F6A6DB23F610C000EEF2E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				047CF7F923F456D50010741F /* ConversionCalculator.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

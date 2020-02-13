@@ -1,69 +1,34 @@
+---
+typora-root-url: ../ios-afternoon-project-swift-fundamentals-iii
+---
+
 # Swift Fundamentals III Afternoon Project
 
-Create a Currency Convert app that can convert from US dollars (USD) to Canadian dollars (CAD) and Mexican Pesos (MXN).
+So I decided to use this project to push myself to try to learn some new stuff. So rather than just complete the provided app (which I did), I made my own currency conversion app which I called Currency Swap. 
 
-Get the currency conversion value from Google:
+![ScreenShot](/images/ScreenShot.png)
 
-On August 7th, 2019 they were:
+To start with, my wife who just this week decided to learn UI Design, designed the UI for the app using Figma. We first brainstormed about what the layout should be, and drew up a sketch. She then picked some colors and designed the background and the "swap" button, which we thought would be useful for swapping the input and output currencies. After laying out the labels and picking fonts, the design was complete.
 
-	$1 USD to $1.33 CAD
-	$1 USD to $19.70 MXN
+I then exported the background and button design and brought them in to the assets folder. Along with those, I created a couple of color swatches in the assets, and imported the font she selected. I decided to layout the app programatically, because it is a simple app, and I wanted more practice laying out using UIKit in code.
 
-Currency Converter App
+I had watched a brownbag last week on using Combine, so I decided I wanted to integrate that into my call to the API I selected (fixer.io). This went fairly smoothly, with the exception that my API key limited me to using HTTP and not HTTPS so I had to add a key to my info.plist. The api also limited me to one base currency (EUR) though that was fine as I could convert everything by going from inputCurrency -> EUR -> outputCurrency.
 
-![Currency App Converter](images/CurrencyConverter.gif)
+I decided to show a table view for selecting the currencies instead of a picker, as in the future I would like to make the list searchable, as the api returns a large number of currencies. I added a selection handler closure to my table view controller to pass the selected currency back to my main view controller.
 
-## Add the Conversion Logic
+I made use of a scroll view that doesn't actually have any subviews to allow for dismissing the keyboard by swiping. I've had experience using inputAccessoryView with a done button to do the same, but this was my first time using a scroll view in this way to handle dismissal.
 
-### In `ViewController.swift`:
+One feature that I recently discovered and implemented in my swap button is swapping variables like so:
 
-1. Create a currency type enum above the class and below the `import` statements.
+```swift
+(inputCurrencyCode, outputCurrencyCode) = (outputCurrencyCode, inputCurrencyCode)
+```
 
-	```swift
-	enum Currency {
-	    case cad
-	    case mxn
-	}
-	```
+I thought that was a neat, concise way to write it.
 
-2. Create a property named `currency` of type `Currency`. This will store the current currency type we'll be converting to. Set an initial value of `.cad`.
-3. In the `cadButtonTapped` action:
-    * Toggle this button's `isSelected` state
-    * Toggle the mxn button's `isSelected` state
-    * Check this button's state, and if `true`:
-        * set the `currency` property to `.cad`
-        * Display the currency in the `toCurrencyLabel` (so have it say "Currency (CAD)")
-4. In the `mxnButtonTapped` action:
-    * Toggle this button's `isSelected` state
-    * Toggle the cad button's `isSelected` state
-    * Check this button's state, and if `true`:
-       * set the `currency` property to `.mxn`
-       * Display the currency in the `toCurrencyLabel` (so have it say "Currency (MXN)")
-5. Create a helper method to calculate the currency based on the Currency using the method signature:
-	```swift
-	func convert(_ dollars: Double) -> Double {
-	}
-	```
-6. In the above method:
-    * Check the value of `currency` to see whether you should convert to CAD or MXN
-    * Perform the conversion with the dollars passed into this method
-    * Return the converted value
-7. In the `convertButtonTapped()` action method:
-    * use a `guard let` to get user input
-    * convert the dollar amount to the expected currency (hint, you'll want to call the `convert` method you created in step 5)
-    * Update the `toCurrencyTextField.text` property with the converted currency value
+I made use of some extensions I wrote, namely to simplify view layout. I did copy paste code from SO with a bit of editing for finding the shortest currency symbol for a given currency code, but I would like to go back and write that out myself.
 
-## Go Further (Optional)
+I tried to make use of constants instead of typing out strings and such, but there are a couple of places I need to go back and use constants.
 
-1. Customize the output display using a `NumberFormatter`
-
-	```swift
-	var currencyFormatter: NumberFormatter = {
-	    let formatter = NumberFormatter()
-	    formatter.numberStyle = .currency
-	    return formatter
-	}()
-	```
-
-2. Use the `string(from:)` method to convert from a number to a String for display
+Overall, I'm proud of what I came up with (with help from my wife on the design) and learned quite a bit on this project. I know this is overkill for an afternoon project, but I needed the challenge, and I've been working on it since Tuesday as well.
 
