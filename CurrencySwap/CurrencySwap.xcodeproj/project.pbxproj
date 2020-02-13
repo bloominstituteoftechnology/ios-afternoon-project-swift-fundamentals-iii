@@ -19,6 +19,7 @@
 		047CF80123F4A63C0010741F /* UITextField+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CF80023F4A63C0010741F /* UITextField+Convenience.swift */; };
 		047CF82323F4BA5D0010741F /* ABeeZee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 047CF82223F4BA5D0010741F /* ABeeZee-Regular.ttf */; };
 		047CF82723F507D50010741F /* CurrencyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CF82623F507D50010741F /* CurrencyTableViewController.swift */; };
+		04F6A6D923F5FA4200EEF2E7 /* NumberFormatter+Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6A6D823F5FA4200EEF2E7 /* NumberFormatter+Symbols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		047CF80023F4A63C0010741F /* UITextField+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Convenience.swift"; sourceTree = "<group>"; };
 		047CF82223F4BA5D0010741F /* ABeeZee-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ABeeZee-Regular.ttf"; sourceTree = "<group>"; };
 		047CF82623F507D50010741F /* CurrencyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewController.swift; sourceTree = "<group>"; };
+		04F6A6D823F5FA4200EEF2E7 /* NumberFormatter+Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Symbols.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				047CF7FB23F4A2430010741F /* UIView+Layout.swift */,
 				047CF7FE23F4A3040010741F /* UIButton+Convenience.swift */,
 				047CF80023F4A63C0010741F /* UITextField+Convenience.swift */,
+				04F6A6D823F5FA4200EEF2E7 /* NumberFormatter+Symbols.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				047CF7FA23F456D50010741F /* ConversionCalculator.swift in Sources */,
 				047CF7FF23F4A3040010741F /* UIButton+Convenience.swift in Sources */,
 				047CF80123F4A63C0010741F /* UITextField+Convenience.swift in Sources */,
+				04F6A6D923F5FA4200EEF2E7 /* NumberFormatter+Symbols.swift in Sources */,
 				047CF82723F507D50010741F /* CurrencyTableViewController.swift in Sources */,
 				047CF7E623F3B6830010741F /* ConversionViewController.swift in Sources */,
 				047CF7FC23F4A2430010741F /* UIView+Layout.swift in Sources */,

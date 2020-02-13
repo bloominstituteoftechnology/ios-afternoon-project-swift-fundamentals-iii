@@ -13,15 +13,17 @@ class ConversionViewController: UIViewController {
     let conversionCalculator = ConversionCalculator()
     
     var inputCurrencyCode = "USD" {
-          didSet {
-              topCurrencyButton.setTitle(inputCurrencyCode, for: .normal)
-          }
-      }
-      var outputCurrencyCode = "EUR" {
-          didSet {
-              bottomCurrencyButton.setTitle(outputCurrencyCode, for: .normal)
-          }
-      }
+        didSet {
+            topCurrencyButton.setTitle(inputCurrencyCode, for: .normal)
+        }
+    }
+    var outputCurrencyCode = "EUR" {
+        didSet {
+            bottomCurrencyButton.setTitle(outputCurrencyCode, for: .normal)
+            print(Locale.availableIdentifiers)
+            outputCurrencyFormatter.currencySymbol = NumberFormatter.shortestSymbolForCurrencyCode(outputCurrencyCode)
+        }
+    }
 
 //MARK: - Subviews
     
@@ -45,8 +47,9 @@ class ConversionViewController: UIViewController {
     
 //MARK: - Auxillary Variables
     
-    let currencyFormatter: NumberFormatter = {
+    let outputCurrencyFormatter: NumberFormatter = {
         let currencyFormatter = NumberFormatter()
+        currencyFormatter.currencySymbol = NumberFormatter.shortestSymbolForCurrencyCode("EUR")
         currencyFormatter.numberStyle = .currency
         return currencyFormatter
     }()
@@ -90,7 +93,7 @@ class ConversionViewController: UIViewController {
         guard let text = topValueTextField.text, let inputAmount = Double(text) else { return }
         
         let result = conversionCalculator.convert(amount: inputAmount, fromCurrencyCode: inputCurrencyCode, toCurrencyCode: outputCurrencyCode)
-        bottomValueTextField.text = currencyFormatter.string(from: NSNumber(value: result))
+        bottomValueTextField.text = outputCurrencyFormatter.string(from: NSNumber(value: result))
     }
     
 //MARK: - View Lifecycle
@@ -141,3 +144,6 @@ extension ConversionViewController: UITextFieldDelegate {
         return true
     }
 }
+
+
+
