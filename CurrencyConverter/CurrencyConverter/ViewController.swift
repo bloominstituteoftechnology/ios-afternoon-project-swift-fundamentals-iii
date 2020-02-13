@@ -13,6 +13,12 @@ enum Currency {
     case mxn
 }
 
+var currencyFormatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .currency
+    return formatter
+}()
+
 class ViewController: UIViewController {
     
     // MARK: - Outlets/Properties
@@ -33,14 +39,14 @@ class ViewController: UIViewController {
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         
         if fromCurrencyTextField.text != nil {
-            let fromUSD: String = fromCurrencyTextField.text!
-            guard let from = Double(fromUSD) else {
+            let fromUSDString: String = fromCurrencyTextField.text!
+            guard let fromUSD = Double(fromUSDString) else {
                 return
             }
-            let result = convert(from)
-            toCurrencyTextField.text = "$\(result)"
+            let result = convert(fromUSD)
+            
+            toCurrencyTextField.text = currencyFormatter.string(from: NSNumber(value: result))
         }
-        
     }
     
     @IBAction func cadButtonTapped(_ sender: UIButton) {
