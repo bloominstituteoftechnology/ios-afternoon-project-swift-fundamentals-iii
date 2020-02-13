@@ -36,6 +36,15 @@ class ConversionViewController: UIViewController {
         return currencyFormatter
     }()
     
+    lazy var keyboardDismisser: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.contentSize = view.frame.size
+        scrollView.keyboardDismissMode = .interactive
+        scrollView.alwaysBounceVertical = true
+        return scrollView
+    }()
+    
 //MARK: - Actions
     
     @objc func swapButtonPressed() {
@@ -80,6 +89,9 @@ class ConversionViewController: UIViewController {
     }
     
     func layoutViews() {
+        view.addSubview(keyboardDismisser)
+        keyboardDismisser.fillSuperview()
+        
         view.addSubview(backgroundImageView)
         backgroundImageView.fillSuperview()
         
