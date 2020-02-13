@@ -11,7 +11,20 @@ import UIKit
 class ConversionViewController: UIViewController {
     
     let conversionCalculator = ConversionCalculator()
+    
+    var inputCurrencyCode = "USD" {
+          didSet {
+              topCurrencyButton.setTitle(inputCurrencyCode, for: .normal)
+          }
+      }
+      var outputCurrencyCode = "EUR" {
+          didSet {
+              bottomCurrencyButton.setTitle(outputCurrencyCode, for: .normal)
+          }
+      }
 
+//MARK: - Subviews
+    
     let backgroundImageView = UIImageView(image: UIImage(named: K.Images.background))
     
     let swapButton: UIButton = {
@@ -29,6 +42,8 @@ class ConversionViewController: UIViewController {
     }()
     let bottomCurrencyButton = UIButton(title: "EUR", titleColor: K.greenColor, font: K.mainFont, target: self, action: #selector(currencyButtonPressed(_:)))
     let bottomValueTextField = UITextField(placeholder: "$0.00", font: K.mainFont, color: K.greenColor, keyboardType: .numberPad, inputAccessoryView: nil)
+    
+//MARK: - Auxillary Variables
     
     let currencyFormatter: NumberFormatter = {
         let currencyFormatter = NumberFormatter()
@@ -48,10 +63,7 @@ class ConversionViewController: UIViewController {
 //MARK: - Actions
     
     @objc func swapButtonPressed() {
-        let topCurrencyCode = topCurrencyButton.title(for: .normal)
-        let bottomCurrencyCode = bottomCurrencyButton.title(for: .normal)
-        topCurrencyButton.setTitle(bottomCurrencyCode, for: .normal)
-        bottomCurrencyButton.setTitle(topCurrencyCode, for: .normal)
+        (inputCurrencyCode, outputCurrencyCode) = (outputCurrencyCode, inputCurrencyCode)
         calculateConversion()
     }
     
@@ -59,8 +71,13 @@ class ConversionViewController: UIViewController {
         let currencyTableViewController = CurrencyTableViewController()
         
         currencyTableViewController.currencyCodes = conversionCalculator.currencyCodes
+        
         currencyTableViewController.selectionHandler = { [weak self] currencyCode in
-            button.setTitle(currencyCode, for: .normal)
+            if button == self?.topCurrencyButton {
+                self?.inputCurrencyCode = currencyCode
+            } else {
+                self?.outputCurrencyCode = currencyCode
+            }
             self?.calculateConversion()
         }
         
@@ -71,7 +88,6 @@ class ConversionViewController: UIViewController {
     
     func calculateConversion() {
         guard let text = topValueTextField.text, let inputAmount = Double(text) else { return }
-        guard let inputCurrencyCode = topCurrencyButton.titleLabel?.text, let outputCurrencyCode = bottomCurrencyButton.titleLabel?.text else { return }
         
         let result = conversionCalculator.convert(amount: inputAmount, fromCurrencyCode: inputCurrencyCode, toCurrencyCode: outputCurrencyCode)
         bottomValueTextField.text = currencyFormatter.string(from: NSNumber(value: result))
