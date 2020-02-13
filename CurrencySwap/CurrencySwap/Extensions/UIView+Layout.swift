@@ -37,4 +37,15 @@ extension UIView {
         ])
         return self
     }
+    
+    @discardableResult
+    func fillHorizontally() -> UIView {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        guard let superview = superview else { print("view has no superview to fill") ; return self}
+        NSLayoutConstraint.activate([
+            self.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+            self.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
+        ])
+        return self
+    }
 }

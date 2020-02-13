@@ -60,6 +60,7 @@ class ConversionViewController: UIViewController {
         textField.text = "1.00"
         textField.leftViewMode = .unlessEditing
         textField.clearsOnBeginEditing = true
+        textField.adjustsFontSizeToFitWidth = true
         return textField
     }()
     let inputCurrencySymbolLabel: UILabel = {
@@ -131,13 +132,13 @@ class ConversionViewController: UIViewController {
         
         let topStack = UIStackView(arrangedSubviews: [inputCurrencyButton, inputValueTextField])
         view.addSubview(topStack)
-        topStack.centerHorizontally().centerVertically(multiplier: 0.4)
+        topStack.fillHorizontally().centerVertically(multiplier: 0.4)
         topStack.axis = .vertical
         topStack.alignment = .center
         
         let bottomStack = UIStackView(arrangedSubviews: [outputCurrencyButton, outputValueTextField])
         view.addSubview(bottomStack)
-        bottomStack.centerHorizontally().centerVertically(multiplier: 1.6)
+        bottomStack.fillHorizontally().centerVertically(multiplier: 1.6)
         bottomStack.axis = .vertical
         bottomStack.alignment = .center
     }
