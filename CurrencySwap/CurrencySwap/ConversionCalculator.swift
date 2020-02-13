@@ -13,25 +13,19 @@ struct LatestRatesResult: Decodable {
      let rates: [String: Double]?
  }
  
-
 class ConversionCalculator {
     
- 
-    var latestRatesResult: LatestRatesResult? {
-        didSet {
-            guard let latestRatesResult = latestRatesResult else { return }
-            print(latestRatesResult.rates ?? "")
-        }
-    }
+    var latestRatesResult: LatestRatesResult?
     
     var subscriptions = Set<AnyCancellable>()
     
     var currencyCodes: [String] {
-        return ["USD", "CAD"]
+        guard let rates = latestRatesResult?.rates else { return [] }
+        return rates.keys.sorted()
     }
     
-    func convert(amount: Double, fromCurrencyCode: String, toCurrencyCode: String) -> Double {
-        return 0
+    init() {
+        self.fetchLatestRates()
     }
     
     func fetchLatestRates() {
@@ -45,5 +39,11 @@ class ConversionCalculator {
                 self.latestRatesResult = value
             })
             .store(in: &subscriptions)
+    }
+    
+    func convert(amount: Double, fromCurrencyCode inputCode: String, toCurrencyCode outputCode: String) -> Double {
+        guard let rates = latestRatesResult?.rates else { return 0 }
+        guard let inputRate = rates[inputCode], let outputRate = rates[outputCode] else { return 0 }
+        return amount / inputRate * outputRate
     }
 }
