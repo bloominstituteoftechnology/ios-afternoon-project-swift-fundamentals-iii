@@ -14,38 +14,16 @@ class ConversionViewController: UIViewController {
     
     var inputCurrencyCode = "USD" {
         didSet {
-            topCurrencyButton.setTitle(inputCurrencyCode, for: .normal)
+            inputCurrencyButton.setTitle(inputCurrencyCode, for: .normal)
         }
     }
     var outputCurrencyCode = "EUR" {
         didSet {
-            bottomCurrencyButton.setTitle(outputCurrencyCode, for: .normal)
+            outputCurrencyButton.setTitle(outputCurrencyCode, for: .normal)
             print(Locale.availableIdentifiers)
             outputCurrencyFormatter.currencySymbol = NumberFormatter.shortestSymbolForCurrencyCode(outputCurrencyCode)
         }
     }
-
-//MARK: - Subviews
-    
-    let backgroundImageView = UIImageView(image: UIImage(named: K.Images.background))
-    
-    let swapButton: UIButton = {
-        let swapButton = UIButton()
-        swapButton.setImage(UIImage(named: K.Images.swapButton), for: .normal)
-        swapButton.addTarget(self, action: #selector(swapButtonPressed), for: .touchUpInside)
-        return swapButton
-    }()
-    
-    let topCurrencyButton = UIButton(title: "USD", titleColor: K.tanColor, font: K.mainFont, target: self, action: #selector(currencyButtonPressed(_:)))
-    let topValueTextField: UITextField = {
-        let topValueTextField = UITextField(placeholder: "$0.00", font: K.mainFont, color: K.tanColor, keyboardType: .numberPad, inputAccessoryView: nil)
-        topValueTextField.textAlignment = .center
-        return topValueTextField
-    }()
-    let bottomCurrencyButton = UIButton(title: "EUR", titleColor: K.greenColor, font: K.mainFont, target: self, action: #selector(currencyButtonPressed(_:)))
-    let bottomValueTextField = UITextField(placeholder: "$0.00", font: K.mainFont, color: K.greenColor, keyboardType: .numberPad, inputAccessoryView: nil)
-    
-//MARK: - Auxillary Variables
     
     let outputCurrencyFormatter: NumberFormatter = {
         let currencyFormatter = NumberFormatter()
@@ -62,6 +40,26 @@ class ConversionViewController: UIViewController {
         scrollView.alwaysBounceVertical = true
         return scrollView
     }()
+
+//MARK: - Subviews
+    
+    let backgroundImageView = UIImageView(image: UIImage(named: K.Images.background))
+    
+    let swapButton: UIButton = {
+        let swapButton = UIButton()
+        swapButton.setImage(UIImage(named: K.Images.swapButton), for: .normal)
+        swapButton.addTarget(self, action: #selector(swapButtonPressed), for: .touchUpInside)
+        return swapButton
+    }()
+    
+    let inputCurrencyButton = UIButton(title: "USD", titleColor: K.tanColor, font: K.mainFont, target: self, action: #selector(currencyButtonPressed(_:)))
+    let inputValueTextField: UITextField = {
+        let topValueTextField = UITextField(placeholder: "$0.00", font: K.mainFont, color: K.tanColor, keyboardType: .numberPad, inputAccessoryView: nil)
+        topValueTextField.textAlignment = .center
+        return topValueTextField
+    }()
+    let outputCurrencyButton = UIButton(title: "EUR", titleColor: K.greenColor, font: K.mainFont, target: self, action: #selector(currencyButtonPressed(_:)))
+    let outputValueTextField = UITextField(placeholder: "$0.00", font: K.mainFont, color: K.greenColor, keyboardType: .numberPad, inputAccessoryView: nil)
     
 //MARK: - Actions
     
@@ -76,7 +74,7 @@ class ConversionViewController: UIViewController {
         currencyTableViewController.currencyCodes = conversionCalculator.currencyCodes
         
         currencyTableViewController.selectionHandler = { [weak self] currencyCode in
-            if button == self?.topCurrencyButton {
+            if button == self?.inputCurrencyButton {
                 self?.inputCurrencyCode = currencyCode
             } else {
                 self?.outputCurrencyCode = currencyCode
@@ -90,10 +88,10 @@ class ConversionViewController: UIViewController {
 //MARK: - Methods
     
     func calculateConversion() {
-        guard let text = topValueTextField.text, let inputAmount = Double(text) else { return }
+        guard let text = inputValueTextField.text, let inputAmount = Double(text) else { return }
         
         let result = conversionCalculator.convert(amount: inputAmount, fromCurrencyCode: inputCurrencyCode, toCurrencyCode: outputCurrencyCode)
-        bottomValueTextField.text = outputCurrencyFormatter.string(from: NSNumber(value: result))
+        outputValueTextField.text = outputCurrencyFormatter.string(from: NSNumber(value: result))
     }
     
 //MARK: - View Lifecycle
@@ -101,8 +99,8 @@ class ConversionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topValueTextField.delegate = self
-        bottomValueTextField.isUserInteractionEnabled = false
+        inputValueTextField.delegate = self
+        outputValueTextField.isUserInteractionEnabled = false
      
         layoutViews()
     }
@@ -117,13 +115,13 @@ class ConversionViewController: UIViewController {
         view.addSubview(swapButton)
         swapButton.centerHorizontally().centerVertically()
         
-        let topStack = UIStackView(arrangedSubviews: [topCurrencyButton, topValueTextField])
+        let topStack = UIStackView(arrangedSubviews: [inputCurrencyButton, inputValueTextField])
         view.addSubview(topStack)
         topStack.centerHorizontally().centerVertically(multiplier: 0.4)
         topStack.axis = .vertical
         topStack.alignment = .center
         
-        let bottomStack = UIStackView(arrangedSubviews: [bottomCurrencyButton, bottomValueTextField])
+        let bottomStack = UIStackView(arrangedSubviews: [outputCurrencyButton, outputValueTextField])
         view.addSubview(bottomStack)
         bottomStack.centerHorizontally().centerVertically(multiplier: 1.6)
         bottomStack.axis = .vertical
