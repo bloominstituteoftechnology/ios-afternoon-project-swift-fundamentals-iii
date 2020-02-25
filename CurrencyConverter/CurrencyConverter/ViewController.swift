@@ -33,6 +33,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var mxnButton: UIButton!
 
     
+    var currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
     
     
     
@@ -97,7 +102,6 @@ class ViewController: UIViewController {
 
 
 
-
     
     // MARK: - Helper Methods
     
@@ -110,7 +114,7 @@ class ViewController: UIViewController {
             return amountInMxn
         } else { return 0.0 }
     }
-
-
+    
 }
+
 
