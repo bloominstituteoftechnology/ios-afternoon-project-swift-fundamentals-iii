@@ -57,11 +57,11 @@ class ViewController: UIViewController {
         
         if cadButton.isSelected {
             amountInCad = convert(fromCurrency)
-            toCurrencyTextField.text = "\(amountInCad)"
+            toCurrencyTextField.text = "$\(amountInCad)"
         } else {
             if mxnButton.isSelected {
                 amountInMxn = convert(fromCurrency)
-                toCurrencyTextField.text = "\(amountInMxn)"
+                toCurrencyTextField.text = "$\(amountInMxn)"
             }
         }
     }
